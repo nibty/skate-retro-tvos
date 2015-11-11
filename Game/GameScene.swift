@@ -8,38 +8,78 @@
 
 import SpriteKit
 
-class GameScene: SKScene {
-    override func didMoveToView(view: SKView) {
-        /* Setup your scene here */
-        let myLabel = SKLabelNode(fontNamed:"Chalkduster")
-        myLabel.text = "Hello, World!";
-        myLabel.fontSize = 65;
-        myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame));
-        
-        self.addChild(myLabel)
-    }
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        /* Called when a touch begins */
+    var player:Player!
+    var background:Backgrounds!
+    var ground:Grounds!
+
+    override func didMoveToView(view: SKView) {
+        let tap = UITapGestureRecognizer(target: self, action: "tapped:")
+        tap.allowedPressTypes = [NSNumber(integer: UIPressType.Select.rawValue)]
+        self.view?.addGestureRecognizer(tap)
         
-        for touch in touches {
-            let location = touch.locationInNode(self)
-            
-            let sprite = SKSpriteNode(imageNamed:"Spaceship")
-            
-            sprite.xScale = 0.5
-            sprite.yScale = 0.5
-            sprite.position = location
-            
-            let action = SKAction.rotateByAngle(CGFloat(M_PI), duration:1)
-            
-            sprite.runAction(SKAction.repeatActionForever(action))
-            
-            self.addChild(sprite)
-        }
+        let dumpster = Dumpster()
+        self.addChild(dumpster)
+        dumpster.startMoving()
+        
+        player = Player()
+        self.addChild(player)
+        
+        background = Backgrounds()
+        background.setup()
+        self.addChild(background)
+
+        ground = Grounds()
+        ground.setup();
+        self.addChild(ground)
+
+        self.physicsWorld.gravity = CGVectorMake(0.0, -10)
+        self.physicsWorld.contactDelegate = self
     }
    
     override func update(currentTime: CFTimeInterval) {
-        /* Called before each frame is rendered */
+        for child in self.children {
+            child.update()
+        }
+    }
+
+    func tapped(gesture: UIGestureRecognizer) {
+        player.jump()
+    }
+    
+    func didBeginContact(contact: SKPhysicsContact) {
+        if contact.bodyA.categoryBitMask == GameManager.sharedInstance.COLLIDER_OBSTACLE || contact.bodyB.categoryBitMask == GameManager.sharedInstance.COLLIDER_OBSTACLE {
+            print("hit a obstackle")
+        }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
