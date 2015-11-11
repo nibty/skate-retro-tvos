@@ -59,4 +59,20 @@ class Backgrounds: SKNode {
         background.position = CGPointMake(CGFloat(index) * background.size.width, background.yPos)
         self.addChild(background)
     }
+    
+    override func removeAllActions() {
+        super.removeAllActions()
+        
+        for node in farBG {
+            node.removeAllActions()
+        }
+        
+        for node in midBG {
+            node.removeAllActions()
+        }
+        
+        for node in frontBG {
+            node.removeAllActions()
+        }
+    }
 }

@@ -15,7 +15,7 @@ class Sidewalk: Ground {
     }
     
     func create() {
-        self.zPosition = 5
+        self.zPosition = 4
         self.yPos = 185
     }
 }

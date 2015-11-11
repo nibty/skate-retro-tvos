@@ -43,6 +43,13 @@ class Grounds: SKNode {
             setupGroud(sidewalkPices, index: i)
             self.addChild(sidewalk)
         }
+        
+        let floor = SKSpriteNode(color: UIColor.redColor(), size: CGSizeMake(1080, 2))
+            
+        floor.position = CGPointMake(540, 115)
+        floor.physicsBody = SKPhysicsBody(rectangleOfSize: floor.size)
+        floor.physicsBody?.dynamic = false
+        self.addChild(floor)
     }
     
     func setupGroud(grounds: [Ground], index: Int) {
@@ -70,5 +77,15 @@ class Grounds: SKNode {
         }
     }
     
-
+    override func removeAllActions() {
+        super.removeAllActions()
+        
+        for node in sidewalkPices {
+            node.removeAllActions()
+        }
+        
+        for node in asphaltPieces {
+            node.removeAllActions()
+        }
+    }
 }

@@ -21,6 +21,15 @@
 		011263B71BF2B1CC00FBC8D7 /* FarBG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011263B61BF2B1CC00FBC8D7 /* FarBG.swift */; };
 		011263B91BF2B59D00FBC8D7 /* Backgrounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011263B81BF2B59D00FBC8D7 /* Backgrounds.swift */; };
 		011263BB1BF2B88900FBC8D7 /* Grounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011263BA1BF2B88900FBC8D7 /* Grounds.swift */; };
+		011263BF1BF2C5DB00FBC8D7 /* Movable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011263BE1BF2C5DB00FBC8D7 /* Movable.swift */; };
+		011263C11BF2C78A00FBC8D7 /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011263C01BF2C78A00FBC8D7 /* Building.swift */; };
+		011263C91BF2DEA600FBC8D7 /* musicMain.wav in Resources */ = {isa = PBXBuildFile; fileRef = 011263C31BF2DEA600FBC8D7 /* musicMain.wav */; };
+		011263CA1BF2DEA600FBC8D7 /* sfxButtonPress.wav in Resources */ = {isa = PBXBuildFile; fileRef = 011263C41BF2DEA600FBC8D7 /* sfxButtonPress.wav */; };
+		011263CB1BF2DEA600FBC8D7 /* sfxCrash.wav in Resources */ = {isa = PBXBuildFile; fileRef = 011263C51BF2DEA600FBC8D7 /* sfxCrash.wav */; };
+		011263CC1BF2DEA600FBC8D7 /* sfxGameOver.wav in Resources */ = {isa = PBXBuildFile; fileRef = 011263C61BF2DEA600FBC8D7 /* sfxGameOver.wav */; };
+		011263CD1BF2DEA600FBC8D7 /* sfxOllie.wav in Resources */ = {isa = PBXBuildFile; fileRef = 011263C71BF2DEA600FBC8D7 /* sfxOllie.wav */; };
+		011263CE1BF2DEA600FBC8D7 /* sfxSkateOrDie.wav in Resources */ = {isa = PBXBuildFile; fileRef = 011263C81BF2DEA600FBC8D7 /* sfxSkateOrDie.wav */; };
+		011263D01BF2E2BE00FBC8D7 /* DumpsterTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011263CF1BF2E2BE00FBC8D7 /* DumpsterTop.swift */; };
 		015793881BF2597C0009D1F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015793871BF2597C0009D1F3 /* AppDelegate.swift */; };
 		0157938A1BF2597C0009D1F3 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 015793891BF2597C0009D1F3 /* GameScene.sks */; };
 		0157938C1BF2597C0009D1F3 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0157938B1BF2597C0009D1F3 /* GameScene.swift */; };
@@ -45,6 +54,15 @@
 		011263B61BF2B1CC00FBC8D7 /* FarBG.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FarBG.swift; sourceTree = "<group>"; };
 		011263B81BF2B59D00FBC8D7 /* Backgrounds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Backgrounds.swift; sourceTree = "<group>"; };
 		011263BA1BF2B88900FBC8D7 /* Grounds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grounds.swift; sourceTree = "<group>"; };
+		011263BE1BF2C5DB00FBC8D7 /* Movable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movable.swift; sourceTree = "<group>"; };
+		011263C01BF2C78A00FBC8D7 /* Building.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Building.swift; sourceTree = "<group>"; };
+		011263C31BF2DEA600FBC8D7 /* musicMain.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = musicMain.wav; path = "../../../Downloads/retro-skate-assets/Audio/musicMain.wav"; sourceTree = "<group>"; };
+		011263C41BF2DEA600FBC8D7 /* sfxButtonPress.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = sfxButtonPress.wav; path = "../../../Downloads/retro-skate-assets/Audio/sfxButtonPress.wav"; sourceTree = "<group>"; };
+		011263C51BF2DEA600FBC8D7 /* sfxCrash.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = sfxCrash.wav; path = "../../../Downloads/retro-skate-assets/Audio/sfxCrash.wav"; sourceTree = "<group>"; };
+		011263C61BF2DEA600FBC8D7 /* sfxGameOver.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = sfxGameOver.wav; path = "../../../Downloads/retro-skate-assets/Audio/sfxGameOver.wav"; sourceTree = "<group>"; };
+		011263C71BF2DEA600FBC8D7 /* sfxOllie.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = sfxOllie.wav; path = "../../../Downloads/retro-skate-assets/Audio/sfxOllie.wav"; sourceTree = "<group>"; };
+		011263C81BF2DEA600FBC8D7 /* sfxSkateOrDie.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = sfxSkateOrDie.wav; path = "../../../Downloads/retro-skate-assets/Audio/sfxSkateOrDie.wav"; sourceTree = "<group>"; };
+		011263CF1BF2E2BE00FBC8D7 /* DumpsterTop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DumpsterTop.swift; sourceTree = "<group>"; };
 		015793841BF2597C0009D1F3 /* Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Game.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		015793871BF2597C0009D1F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		015793891BF2597C0009D1F3 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -70,18 +88,14 @@
 		011263A21BF2827E00FBC8D7 /* GameObjects */ = {
 			isa = PBXGroup;
 			children = (
+				011263BD1BF2C55400FBC8D7 /* Ground */,
+				011263BC1BF2C53B00FBC8D7 /* Background */,
 				0112639C1BF27E7400FBC8D7 /* Obstacle.swift */,
+				011263C01BF2C78A00FBC8D7 /* Building.swift */,
 				011263A01BF2816100FBC8D7 /* Dumpster.swift */,
 				011263A51BF2909A00FBC8D7 /* Player.swift */,
-				011263AA1BF2A7F000FBC8D7 /* Background.swift */,
-				011263AC1BF2A7FF00FBC8D7 /* Ground.swift */,
-				011263AE1BF2A91300FBC8D7 /* Asphalt.swift */,
-				011263B01BF2AB0200FBC8D7 /* Sidewalk.swift */,
-				011263B21BF2AF9D00FBC8D7 /* FrontBG.swift */,
-				011263B41BF2B16A00FBC8D7 /* MidBG.swift */,
-				011263B61BF2B1CC00FBC8D7 /* FarBG.swift */,
-				011263B81BF2B59D00FBC8D7 /* Backgrounds.swift */,
-				011263BA1BF2B88900FBC8D7 /* Grounds.swift */,
+				011263BE1BF2C5DB00FBC8D7 /* Movable.swift */,
+				011263CF1BF2E2BE00FBC8D7 /* DumpsterTop.swift */,
 			);
 			name = GameObjects;
 			sourceTree = "<group>";
@@ -111,6 +125,42 @@
 			name = Services;
 			sourceTree = "<group>";
 		};
+		011263BC1BF2C53B00FBC8D7 /* Background */ = {
+			isa = PBXGroup;
+			children = (
+				011263AA1BF2A7F000FBC8D7 /* Background.swift */,
+				011263B21BF2AF9D00FBC8D7 /* FrontBG.swift */,
+				011263B41BF2B16A00FBC8D7 /* MidBG.swift */,
+				011263B61BF2B1CC00FBC8D7 /* FarBG.swift */,
+				011263B81BF2B59D00FBC8D7 /* Backgrounds.swift */,
+			);
+			name = Background;
+			sourceTree = "<group>";
+		};
+		011263BD1BF2C55400FBC8D7 /* Ground */ = {
+			isa = PBXGroup;
+			children = (
+				011263AC1BF2A7FF00FBC8D7 /* Ground.swift */,
+				011263AE1BF2A91300FBC8D7 /* Asphalt.swift */,
+				011263B01BF2AB0200FBC8D7 /* Sidewalk.swift */,
+				011263BA1BF2B88900FBC8D7 /* Grounds.swift */,
+			);
+			name = Ground;
+			sourceTree = "<group>";
+		};
+		011263C21BF2DE9700FBC8D7 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				011263C31BF2DEA600FBC8D7 /* musicMain.wav */,
+				011263C41BF2DEA600FBC8D7 /* sfxButtonPress.wav */,
+				011263C51BF2DEA600FBC8D7 /* sfxCrash.wav */,
+				011263C61BF2DEA600FBC8D7 /* sfxGameOver.wav */,
+				011263C71BF2DEA600FBC8D7 /* sfxOllie.wav */,
+				011263C81BF2DEA600FBC8D7 /* sfxSkateOrDie.wav */,
+			);
+			name = Audio;
+			sourceTree = "<group>";
+		};
 		0157937B1BF2597C0009D1F3 = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +180,7 @@
 		015793861BF2597C0009D1F3 /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				011263C21BF2DE9700FBC8D7 /* Audio */,
 				011263A71BF2931D00FBC8D7 /* Services */,
 				011263A41BF2829B00FBC8D7 /* Scenes */,
 				011263A31BF2828E00FBC8D7 /* Extensions */,
@@ -176,6 +227,7 @@
 				TargetAttributes = {
 					015793831BF2597C0009D1F3 = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = BSCV69Q3EV;
 					};
 				};
 			};
@@ -202,9 +254,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				011263CA1BF2DEA600FBC8D7 /* sfxButtonPress.wav in Resources */,
+				011263CB1BF2DEA600FBC8D7 /* sfxCrash.wav in Resources */,
+				011263CC1BF2DEA600FBC8D7 /* sfxGameOver.wav in Resources */,
+				011263CE1BF2DEA600FBC8D7 /* sfxSkateOrDie.wav in Resources */,
 				015793931BF2597C0009D1F3 /* Main.storyboard in Resources */,
 				0157938A1BF2597C0009D1F3 /* GameScene.sks in Resources */,
+				011263CD1BF2DEA600FBC8D7 /* sfxOllie.wav in Resources */,
 				015793951BF2597C0009D1F3 /* Assets.xcassets in Resources */,
+				011263C91BF2DEA600FBC8D7 /* musicMain.wav in Resources */,
 				015793901BF2597C0009D1F3 /* Game.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -223,11 +281,14 @@
 				011263B71BF2B1CC00FBC8D7 /* FarBG.swift in Sources */,
 				0157938E1BF2597C0009D1F3 /* GameViewController.swift in Sources */,
 				0112639F1BF280B700FBC8D7 /* SKNodeUpdate.swift in Sources */,
+				011263D01BF2E2BE00FBC8D7 /* DumpsterTop.swift in Sources */,
 				011263AD1BF2A7FF00FBC8D7 /* Ground.swift in Sources */,
+				011263C11BF2C78A00FBC8D7 /* Building.swift in Sources */,
 				011263AF1BF2A91300FBC8D7 /* Asphalt.swift in Sources */,
 				011263A11BF2816100FBC8D7 /* Dumpster.swift in Sources */,
 				011263AB1BF2A7F000FBC8D7 /* Background.swift in Sources */,
 				011263B31BF2AF9D00FBC8D7 /* FrontBG.swift in Sources */,
+				011263BF1BF2C5DB00FBC8D7 /* Movable.swift in Sources */,
 				011263A61BF2909A00FBC8D7 /* Player.swift in Sources */,
 				0112639D1BF27E7400FBC8D7 /* Obstacle.swift in Sources */,
 				015793881BF2597C0009D1F3 /* AppDelegate.swift in Sources */,
@@ -336,10 +397,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Game/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nibty.Game;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -348,10 +412,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Game/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nibty.Game;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
