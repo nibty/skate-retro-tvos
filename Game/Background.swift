@@ -8,7 +8,6 @@
 
 import SpriteKit
 
-class Background: SKSpriteNode {
+class Background: Movable {
     var action: SKAction!
-    var yPos: CGFloat!
 }

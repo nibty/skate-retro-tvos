@@ -30,6 +30,9 @@
 		011263CD1BF2DEA600FBC8D7 /* sfxOllie.wav in Resources */ = {isa = PBXBuildFile; fileRef = 011263C71BF2DEA600FBC8D7 /* sfxOllie.wav */; };
 		011263CE1BF2DEA600FBC8D7 /* sfxSkateOrDie.wav in Resources */ = {isa = PBXBuildFile; fileRef = 011263C81BF2DEA600FBC8D7 /* sfxSkateOrDie.wav */; };
 		011263D01BF2E2BE00FBC8D7 /* DumpsterTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011263CF1BF2E2BE00FBC8D7 /* DumpsterTop.swift */; };
+		011263D21BF327C000FBC8D7 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011263D11BF327C000FBC8D7 /* Utils.swift */; };
+		011263D41BF32CCB00FBC8D7 /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011263D31BF32CCB00FBC8D7 /* Tree.swift */; };
+		011263D61BF3350300FBC8D7 /* Cloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011263D51BF3350300FBC8D7 /* Cloud.swift */; };
 		015793881BF2597C0009D1F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015793871BF2597C0009D1F3 /* AppDelegate.swift */; };
 		0157938A1BF2597C0009D1F3 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 015793891BF2597C0009D1F3 /* GameScene.sks */; };
 		0157938C1BF2597C0009D1F3 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0157938B1BF2597C0009D1F3 /* GameScene.swift */; };
@@ -63,6 +66,9 @@
 		011263C71BF2DEA600FBC8D7 /* sfxOllie.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = sfxOllie.wav; path = "../../../Downloads/retro-skate-assets/Audio/sfxOllie.wav"; sourceTree = "<group>"; };
 		011263C81BF2DEA600FBC8D7 /* sfxSkateOrDie.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = sfxSkateOrDie.wav; path = "../../../Downloads/retro-skate-assets/Audio/sfxSkateOrDie.wav"; sourceTree = "<group>"; };
 		011263CF1BF2E2BE00FBC8D7 /* DumpsterTop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DumpsterTop.swift; sourceTree = "<group>"; };
+		011263D11BF327C000FBC8D7 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		011263D31BF32CCB00FBC8D7 /* Tree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tree.swift; sourceTree = "<group>"; };
+		011263D51BF3350300FBC8D7 /* Cloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cloud.swift; sourceTree = "<group>"; };
 		015793841BF2597C0009D1F3 /* Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Game.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		015793871BF2597C0009D1F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		015793891BF2597C0009D1F3 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -96,6 +102,8 @@
 				011263A51BF2909A00FBC8D7 /* Player.swift */,
 				011263BE1BF2C5DB00FBC8D7 /* Movable.swift */,
 				011263CF1BF2E2BE00FBC8D7 /* DumpsterTop.swift */,
+				011263D31BF32CCB00FBC8D7 /* Tree.swift */,
+				011263D51BF3350300FBC8D7 /* Cloud.swift */,
 			);
 			name = GameObjects;
 			sourceTree = "<group>";
@@ -121,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				011263A81BF2932C00FBC8D7 /* GameManager.swift */,
+				011263D11BF327C000FBC8D7 /* Utils.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -287,10 +296,13 @@
 				011263AF1BF2A91300FBC8D7 /* Asphalt.swift in Sources */,
 				011263A11BF2816100FBC8D7 /* Dumpster.swift in Sources */,
 				011263AB1BF2A7F000FBC8D7 /* Background.swift in Sources */,
+				011263D61BF3350300FBC8D7 /* Cloud.swift in Sources */,
 				011263B31BF2AF9D00FBC8D7 /* FrontBG.swift in Sources */,
 				011263BF1BF2C5DB00FBC8D7 /* Movable.swift in Sources */,
 				011263A61BF2909A00FBC8D7 /* Player.swift in Sources */,
 				0112639D1BF27E7400FBC8D7 /* Obstacle.swift in Sources */,
+				011263D41BF32CCB00FBC8D7 /* Tree.swift in Sources */,
+				011263D21BF327C000FBC8D7 /* Utils.swift in Sources */,
 				015793881BF2597C0009D1F3 /* AppDelegate.swift in Sources */,
 				011263B91BF2B59D00FBC8D7 /* Backgrounds.swift in Sources */,
 				011263BB1BF2B88900FBC8D7 /* Grounds.swift in Sources */,

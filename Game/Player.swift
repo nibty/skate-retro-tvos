@@ -16,6 +16,7 @@ class Player: SKSpriteNode {
     let CHAR_Y_POSITION:CGFloat = 175
     var isJumping = false
     var charCrashFrames = [SKTexture]()
+    var charOllieFrames = [SKTexture]()
     
     convenience init() {
         self.init(imageNamed: "push0")
@@ -23,9 +24,10 @@ class Player: SKSpriteNode {
     }
     
     override func update() {
-        if isJumping {
+        if GameManager.sharedInstance.isJumping {
+            
             if floor((self.physicsBody?.velocity.dy)!) == 0 {
-                isJumping = false
+                GameManager.sharedInstance.isJumping = false
             }
         }
     }
@@ -37,6 +39,10 @@ class Player: SKSpriteNode {
         
         for var x = 0; x < 9; x++ {
             charCrashFrames.append(SKTexture(imageNamed: "crash\(x)"))
+        }
+        
+        for var x = 0; x < 10; x++ {
+            charOllieFrames.append(SKTexture(imageNamed: "ollie\(x)"))
         }
         
         self.position = CGPointMake(CHAR_X_POSITION, CHAR_Y_POSITION)
@@ -52,7 +58,7 @@ class Player: SKSpriteNode {
 //        
 //        self.physicsBody = SKPhysicsBody(bodies: [frontCollider, bottomCollider])
 
-        self.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(self.size.width - 20, self.size.height))
+        self.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(self.size.width - 50, self.size.height - 20))
         self.physicsBody?.restitution = 0
         self.physicsBody?.linearDamping = 0.1
         self.physicsBody?.allowsRotation = false
@@ -64,20 +70,26 @@ class Player: SKSpriteNode {
     }
     
     func jump() {
-        if !isJumping && !GameManager.sharedInstance.gameOver {
-            isJumping = true
+        if !GameManager.sharedInstance.isJumping && !GameManager.sharedInstance.gameOver {
+            GameManager.sharedInstance.isJumping = true
             
-            self.runAction(SKAction.playSoundFileNamed("sfxOllie.wav", waitForCompletion: false))
-            
-            self.physicsBody?.applyImpulse(CGVectorMake(0.0, 65.0))
+            self.physicsBody?.applyImpulse(CGVectorMake(0.0, 70.0))
+            self.runAction(GameManager.sharedInstance.jumpSoundAction)
+        }
+    }
+    
+    func ollie() {
+        if GameManager.sharedInstance.isJumping && !GameManager.sharedInstance.gameOver {
+            playOllieAnim()
+            self.runAction(GameManager.sharedInstance.jumpSoundAction)
+            self.physicsBody?.applyImpulse(CGVectorMake(0.0, 30))
         }
     }
     
     func playCrashAnim() {
         if !GameManager.sharedInstance.gameOver {
             self.removeAllActions()
-            self.runAction(SKAction.playSoundFileNamed("sfxGameOver.wav", waitForCompletion: false))
-
+            self.runAction(GameManager.sharedInstance.gameOverSoundAction)
             self.runAction(SKAction.animateWithTextures(charCrashFrames, timePerFrame: 0.05))
         }
     }
@@ -86,5 +98,15 @@ class Player: SKSpriteNode {
         self.removeAllActions()
         
         self.runAction(SKAction.repeatActionForever(SKAction.animateWithTextures(charPushFrames, timePerFrame: 0.1)))
+    }
+    
+    func playOllieAnim() {
+        self.removeAllActions()
+
+        self.runAction(SKAction.animateWithTextures(charOllieFrames, timePerFrame: 0.05))
+        let wait = SKAction.waitForDuration(0.6)
+        self.runAction(wait, completion:  {() -> Void in
+            self.playPushAnim()
+        })
     }
 }

@@ -44,12 +44,13 @@ class Grounds: SKNode {
             self.addChild(sidewalk)
         }
         
-        let floor = SKSpriteNode(color: UIColor.redColor(), size: CGSizeMake(1080, 2))
-            
+        let floor = SKSpriteNode(color: UIColor.clearColor(), size: CGSizeMake(1080, 2))
+        self.addChild(floor)
         floor.position = CGPointMake(540, 115)
         floor.physicsBody = SKPhysicsBody(rectangleOfSize: floor.size)
+        floor.physicsBody!.categoryBitMask = GameManager.sharedInstance.COLLIDER_RIDEABLE
+        floor.physicsBody!.contactTestBitMask = GameManager.sharedInstance.COLLIDER_PLAYER
         floor.physicsBody?.dynamic = false
-        self.addChild(floor)
     }
     
     func setupGroud(grounds: [Ground], index: Int) {

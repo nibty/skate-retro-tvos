@@ -20,4 +20,18 @@ class GameManager {
     let COLLIDER_RIDEABLE: UInt32 = 1 << 2
 
     var gameOver = false
+    
+    var dumpsterXStartPosition:CGFloat = 0
+    var isJumping = false
+    var movingSpeed:CGFloat = -8.5
+    
+    var score = 0
+    
+    func incrementScore() {
+        score++
+    }
+    
+    var jumpSoundAction = SKAction.playSoundFileNamed("sfxOllie.wav", waitForCompletion: false)
+    var gameOverSoundAction = SKAction.playSoundFileNamed("sfxGameOver.wav", waitForCompletion: false)
+
 }

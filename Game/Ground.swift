@@ -8,14 +8,7 @@
 
 import SpriteKit
 
-class Ground: SKSpriteNode {
+class Ground: Movable {
     var moveGroundAction = SKAction!()
     var moveGroundActionForever = SKAction!()
-    var yPos: CGFloat!
-    
-    func startMoving() {
-        moveGroundAction = SKAction.moveByX(GameManager.sharedInstance.MOVEMENT_SPEED, y: 0, duration:  0.02)
-        moveGroundActionForever = SKAction.repeatActionForever(moveGroundAction)
-        self.runAction(moveGroundActionForever)
-    }
 }

@@ -10,15 +10,21 @@ import SpriteKit
 
 class DumbsterTop: Obstacle {
     convenience init() {
-        self.init(color: UIColor.clearColor(), size: CGSizeMake(100,2))
+        self.init(color: UIColor.clearColor(), size: CGSizeMake(110,2))
         self.yPos = 220
         self.zPosition = 7
     }
     
     override func initPhysics() {
         self.physicsBody = SKPhysicsBody(rectangleOfSize: self.size)
-        self.physicsBody?.categoryBitMask = GameManager.sharedInstance.COLLIDER_RIDEABLE
-        
+        self.physicsBody!.categoryBitMask = GameManager.sharedInstance.COLLIDER_RIDEABLE
+        self.physicsBody!.contactTestBitMask = GameManager.sharedInstance.COLLIDER_PLAYER
+
         super.initPhysics()
     }
+    
+    override func didExceedBounds() {
+        self.position = CGPointMake(GameManager.sharedInstance.dumpsterXStartPosition, self.position.y)
+    }
+    
 }
