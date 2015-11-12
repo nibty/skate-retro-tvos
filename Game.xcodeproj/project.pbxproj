@@ -7,12 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		010449AB1BF4409D0075B18C /* musicMain.wav in Resources */ = {isa = PBXBuildFile; fileRef = 010449A51BF4409D0075B18C /* musicMain.wav */; };
-		010449AC1BF4409D0075B18C /* sfxButtonPress.wav in Resources */ = {isa = PBXBuildFile; fileRef = 010449A61BF4409D0075B18C /* sfxButtonPress.wav */; };
-		010449AD1BF4409D0075B18C /* sfxCrash.wav in Resources */ = {isa = PBXBuildFile; fileRef = 010449A71BF4409D0075B18C /* sfxCrash.wav */; };
-		010449AE1BF4409D0075B18C /* sfxGameOver.wav in Resources */ = {isa = PBXBuildFile; fileRef = 010449A81BF4409D0075B18C /* sfxGameOver.wav */; };
-		010449AF1BF4409D0075B18C /* sfxOllie.wav in Resources */ = {isa = PBXBuildFile; fileRef = 010449A91BF4409D0075B18C /* sfxOllie.wav */; };
-		010449B01BF4409D0075B18C /* sfxSkateOrDie.wav in Resources */ = {isa = PBXBuildFile; fileRef = 010449AA1BF4409D0075B18C /* sfxSkateOrDie.wav */; };
 		0112639D1BF27E7400FBC8D7 /* Obstacle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0112639C1BF27E7400FBC8D7 /* Obstacle.swift */; };
 		0112639F1BF280B700FBC8D7 /* SKNodeUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0112639E1BF280B700FBC8D7 /* SKNodeUpdate.swift */; };
 		011263A11BF2816100FBC8D7 /* Dumpster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011263A01BF2816100FBC8D7 /* Dumpster.swift */; };
@@ -59,24 +53,30 @@
 		0112644B1BF3FB6800FBC8D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 015793941BF2597C0009D1F3 /* Assets.xcassets */; };
 		0112644D1BF3FB6800FBC8D7 /* Game.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0157938F1BF2597C0009D1F3 /* Game.xcassets */; };
 		011264551BF402CE00FBC8D7 /* Main-Iphone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 011264531BF4013400FBC8D7 /* Main-Iphone.storyboard */; };
-		0112647B1BF4077100FBC8D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 011264791BF4077100FBC8D7 /* LaunchScreen.storyboard */; };
 		011EB6391BF408010005F457 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 015793891BF2597C0009D1F3 /* GameScene.sks */; };
 		011EB63A1BF4080C0005F457 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 015793891BF2597C0009D1F3 /* GameScene.sks */; };
+		014352451BF4552A0089BD2C /* musicMain.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0143523F1BF4552A0089BD2C /* musicMain.wav */; };
+		014352461BF4552A0089BD2C /* musicMain.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0143523F1BF4552A0089BD2C /* musicMain.wav */; };
+		014352471BF4552A0089BD2C /* sfxButtonPress.wav in Resources */ = {isa = PBXBuildFile; fileRef = 014352401BF4552A0089BD2C /* sfxButtonPress.wav */; };
+		014352481BF4552A0089BD2C /* sfxButtonPress.wav in Resources */ = {isa = PBXBuildFile; fileRef = 014352401BF4552A0089BD2C /* sfxButtonPress.wav */; };
+		014352491BF4552A0089BD2C /* sfxCrash.wav in Resources */ = {isa = PBXBuildFile; fileRef = 014352411BF4552A0089BD2C /* sfxCrash.wav */; };
+		0143524A1BF4552A0089BD2C /* sfxCrash.wav in Resources */ = {isa = PBXBuildFile; fileRef = 014352411BF4552A0089BD2C /* sfxCrash.wav */; };
+		0143524B1BF4552A0089BD2C /* sfxGameOver.wav in Resources */ = {isa = PBXBuildFile; fileRef = 014352421BF4552A0089BD2C /* sfxGameOver.wav */; };
+		0143524C1BF4552A0089BD2C /* sfxGameOver.wav in Resources */ = {isa = PBXBuildFile; fileRef = 014352421BF4552A0089BD2C /* sfxGameOver.wav */; };
+		0143524D1BF4552A0089BD2C /* sfxOllie.wav in Resources */ = {isa = PBXBuildFile; fileRef = 014352431BF4552A0089BD2C /* sfxOllie.wav */; };
+		0143524E1BF4552A0089BD2C /* sfxOllie.wav in Resources */ = {isa = PBXBuildFile; fileRef = 014352431BF4552A0089BD2C /* sfxOllie.wav */; };
+		0143524F1BF4552A0089BD2C /* sfxSkateOrDie.wav in Resources */ = {isa = PBXBuildFile; fileRef = 014352441BF4552A0089BD2C /* sfxSkateOrDie.wav */; };
+		014352501BF4552A0089BD2C /* sfxSkateOrDie.wav in Resources */ = {isa = PBXBuildFile; fileRef = 014352441BF4552A0089BD2C /* sfxSkateOrDie.wav */; };
 		015793881BF2597C0009D1F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015793871BF2597C0009D1F3 /* AppDelegate.swift */; };
 		0157938C1BF2597C0009D1F3 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0157938B1BF2597C0009D1F3 /* GameScene.swift */; };
 		0157938E1BF2597C0009D1F3 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0157938D1BF2597C0009D1F3 /* GameViewController.swift */; };
 		015793901BF2597C0009D1F3 /* Game.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0157938F1BF2597C0009D1F3 /* Game.xcassets */; };
 		015793931BF2597C0009D1F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 015793911BF2597C0009D1F3 /* Main.storyboard */; };
 		015793951BF2597C0009D1F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 015793941BF2597C0009D1F3 /* Assets.xcassets */; };
+		01625AAC1BF4538D0069C339 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01625AAB1BF4538D0069C339 /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		010449A51BF4409D0075B18C /* musicMain.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = musicMain.wav; sourceTree = "<group>"; };
-		010449A61BF4409D0075B18C /* sfxButtonPress.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sfxButtonPress.wav; sourceTree = "<group>"; };
-		010449A71BF4409D0075B18C /* sfxCrash.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sfxCrash.wav; sourceTree = "<group>"; };
-		010449A81BF4409D0075B18C /* sfxGameOver.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sfxGameOver.wav; sourceTree = "<group>"; };
-		010449A91BF4409D0075B18C /* sfxOllie.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sfxOllie.wav; sourceTree = "<group>"; };
-		010449AA1BF4409D0075B18C /* sfxSkateOrDie.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sfxSkateOrDie.wav; sourceTree = "<group>"; };
 		0112639C1BF27E7400FBC8D7 /* Obstacle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Obstacle.swift; sourceTree = "<group>"; };
 		0112639E1BF280B700FBC8D7 /* SKNodeUpdate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKNodeUpdate.swift; sourceTree = "<group>"; };
 		011263A01BF2816100FBC8D7 /* Dumpster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dumpster.swift; sourceTree = "<group>"; };
@@ -100,7 +100,12 @@
 		011264511BF3FB6800FBC8D7 /* Game-Iphone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Game-Iphone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		011264521BF3FB6800FBC8D7 /* Game copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Game copy-Info.plist"; path = "/Users/nick/Desktop/Game/Game copy-Info.plist"; sourceTree = "<absolute>"; };
 		011264531BF4013400FBC8D7 /* Main-Iphone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Main-Iphone.storyboard"; sourceTree = "<group>"; };
-		0112647A1BF4077100FBC8D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ../../adasd/adasd/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0143523F1BF4552A0089BD2C /* musicMain.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = musicMain.wav; sourceTree = "<group>"; };
+		014352401BF4552A0089BD2C /* sfxButtonPress.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sfxButtonPress.wav; sourceTree = "<group>"; };
+		014352411BF4552A0089BD2C /* sfxCrash.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sfxCrash.wav; sourceTree = "<group>"; };
+		014352421BF4552A0089BD2C /* sfxGameOver.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sfxGameOver.wav; sourceTree = "<group>"; };
+		014352431BF4552A0089BD2C /* sfxOllie.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sfxOllie.wav; sourceTree = "<group>"; };
+		014352441BF4552A0089BD2C /* sfxSkateOrDie.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sfxSkateOrDie.wav; sourceTree = "<group>"; };
 		015793841BF2597C0009D1F3 /* Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Game.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		015793871BF2597C0009D1F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		015793891BF2597C0009D1F3 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -110,6 +115,7 @@
 		015793921BF2597C0009D1F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		015793941BF2597C0009D1F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		015793961BF2597C0009D1F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		01625AAB1BF4538D0069C339 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,12 +205,12 @@
 		011263C21BF2DE9700FBC8D7 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
-				010449A51BF4409D0075B18C /* musicMain.wav */,
-				010449A61BF4409D0075B18C /* sfxButtonPress.wav */,
-				010449A71BF4409D0075B18C /* sfxCrash.wav */,
-				010449A81BF4409D0075B18C /* sfxGameOver.wav */,
-				010449A91BF4409D0075B18C /* sfxOllie.wav */,
-				010449AA1BF4409D0075B18C /* sfxSkateOrDie.wav */,
+				0143523F1BF4552A0089BD2C /* musicMain.wav */,
+				014352401BF4552A0089BD2C /* sfxButtonPress.wav */,
+				014352411BF4552A0089BD2C /* sfxCrash.wav */,
+				014352421BF4552A0089BD2C /* sfxGameOver.wav */,
+				014352431BF4552A0089BD2C /* sfxOllie.wav */,
+				014352441BF4552A0089BD2C /* sfxSkateOrDie.wav */,
 			);
 			name = Audio;
 			sourceTree = "<group>";
@@ -238,11 +244,11 @@
 				015793871BF2597C0009D1F3 /* AppDelegate.swift */,
 				0157938D1BF2597C0009D1F3 /* GameViewController.swift */,
 				0157938F1BF2597C0009D1F3 /* Game.xcassets */,
-				011264791BF4077100FBC8D7 /* LaunchScreen.storyboard */,
 				015793911BF2597C0009D1F3 /* Main.storyboard */,
 				015793941BF2597C0009D1F3 /* Assets.xcassets */,
 				015793961BF2597C0009D1F3 /* Info.plist */,
 				011264531BF4013400FBC8D7 /* Main-Iphone.storyboard */,
+				01625AAB1BF4538D0069C339 /* Launch Screen.storyboard */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -294,6 +300,9 @@
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Nicholas Pettas";
 				TargetAttributes = {
+					011264291BF3FB6800FBC8D7 = {
+						DevelopmentTeam = BSCV69Q3EV;
+					};
 					015793831BF2597C0009D1F3 = {
 						CreatedOnToolsVersion = 7.1;
 						DevelopmentTeam = BSCV69Q3EV;
@@ -324,11 +333,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0143524C1BF4552A0089BD2C /* sfxGameOver.wav in Resources */,
+				014352501BF4552A0089BD2C /* sfxSkateOrDie.wav in Resources */,
 				011EB63A1BF4080C0005F457 /* GameScene.sks in Resources */,
 				0112644B1BF3FB6800FBC8D7 /* Assets.xcassets in Resources */,
+				0143524A1BF4552A0089BD2C /* sfxCrash.wav in Resources */,
 				011264551BF402CE00FBC8D7 /* Main-Iphone.storyboard in Resources */,
-				0112647B1BF4077100FBC8D7 /* LaunchScreen.storyboard in Resources */,
+				014352481BF4552A0089BD2C /* sfxButtonPress.wav in Resources */,
+				01625AAC1BF4538D0069C339 /* Launch Screen.storyboard in Resources */,
 				0112644D1BF3FB6800FBC8D7 /* Game.xcassets in Resources */,
+				0143524E1BF4552A0089BD2C /* sfxOllie.wav in Resources */,
+				014352461BF4552A0089BD2C /* musicMain.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,15 +351,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				010449AC1BF4409D0075B18C /* sfxButtonPress.wav in Resources */,
-				010449AD1BF4409D0075B18C /* sfxCrash.wav in Resources */,
-				010449AE1BF4409D0075B18C /* sfxGameOver.wav in Resources */,
-				010449B01BF4409D0075B18C /* sfxSkateOrDie.wav in Resources */,
+				014352471BF4552A0089BD2C /* sfxButtonPress.wav in Resources */,
+				014352491BF4552A0089BD2C /* sfxCrash.wav in Resources */,
+				0143524B1BF4552A0089BD2C /* sfxGameOver.wav in Resources */,
+				0143524F1BF4552A0089BD2C /* sfxSkateOrDie.wav in Resources */,
 				015793931BF2597C0009D1F3 /* Main.storyboard in Resources */,
 				011EB6391BF408010005F457 /* GameScene.sks in Resources */,
-				010449AF1BF4409D0075B18C /* sfxOllie.wav in Resources */,
+				0143524D1BF4552A0089BD2C /* sfxOllie.wav in Resources */,
 				015793951BF2597C0009D1F3 /* Assets.xcassets in Resources */,
-				010449AB1BF4409D0075B18C /* musicMain.wav in Resources */,
+				014352451BF4552A0089BD2C /* musicMain.wav in Resources */,
 				015793901BF2597C0009D1F3 /* Game.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -415,14 +430,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		011264791BF4077100FBC8D7 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0112647A1BF4077100FBC8D7 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
 		015793911BF2597C0009D1F3 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -556,11 +563,14 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
 				INFOPLIST_FILE = Game/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				"OTHER_SWIFT_FLAGS[arch=*]" = "-DDEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nibty.Game;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Debug;
 		};
@@ -576,6 +586,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.nibty.Game;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Release;
 		};

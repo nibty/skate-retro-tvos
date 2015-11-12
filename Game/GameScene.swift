@@ -242,7 +242,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.view?.scene?.anchorPoint = CGPointMake(0, 0)
         }
         
-        if let label = scoreLabel {
+        if let _ = scoreLabel {
             placeScoreLabel()
         }
         
@@ -258,11 +258,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func placeScoreLabel() {
+        
+        let size = Utils.getPhoneSize()
+        
+        print(size.width)
+        print(" ")
+        print(size.height)
+        
+        #if os(tvOS)
+            scoreLabel.position = CGPointMake(size.width + GameManager.sharedInstance.SCORE_X_ADJUSTMENT_POS_APPLETV, size.size.height + GameManager.sharedInstance.SCORE_Y_ADJUSTMENT_POS_APPLETV)
+        #else
+
         if isLandscape() {
-            scoreLabel.position = CGPointMake(self.frame.size.width - 40, self.frame.size.height)
+            print("here")
+            scoreLabel.position = CGPointMake(size.size.width + GameManager.sharedInstance.SCORE_X_ADJUSTMENT_POS_LANDSCAPE, size.size.height + GameManager.sharedInstance.SCORE_Y_ADJUSTMENT_POS_LANDSCAPE)
         } else {
-            scoreLabel.position = CGPointMake(self.frame.size.width - 40, self.frame.size.height - 70)
+            scoreLabel.position = CGPointMake(size.size.width + GameManager.sharedInstance.SCORE_X_ADJUSTMENT_POS_PORTRAIT, size.size.height + GameManager.sharedInstance.SCORE_Y_ADJUSTMENT_POS_PORTRAIT)
         }
+        #endif
     }
 }
 

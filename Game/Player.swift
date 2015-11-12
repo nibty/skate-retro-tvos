@@ -48,7 +48,7 @@ class Player: SKSpriteNode {
         self.position = CGPointMake(CHAR_X_POSITION, CHAR_Y_POSITION)
 
         
-        #if TARGET_OS_TV
+        #if os(tvOS)
             self.position = CGPointMake(CHAR_X_POSITION, CHAR_Y_POSITION)
         #else
             self.position = CGPointMake(CHAR_X_POSITION - 100, CHAR_Y_POSITION)
