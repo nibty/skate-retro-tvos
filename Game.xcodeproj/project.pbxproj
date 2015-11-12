@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		010449AB1BF4409D0075B18C /* musicMain.wav in Resources */ = {isa = PBXBuildFile; fileRef = 010449A51BF4409D0075B18C /* musicMain.wav */; };
+		010449AC1BF4409D0075B18C /* sfxButtonPress.wav in Resources */ = {isa = PBXBuildFile; fileRef = 010449A61BF4409D0075B18C /* sfxButtonPress.wav */; };
+		010449AD1BF4409D0075B18C /* sfxCrash.wav in Resources */ = {isa = PBXBuildFile; fileRef = 010449A71BF4409D0075B18C /* sfxCrash.wav */; };
+		010449AE1BF4409D0075B18C /* sfxGameOver.wav in Resources */ = {isa = PBXBuildFile; fileRef = 010449A81BF4409D0075B18C /* sfxGameOver.wav */; };
+		010449AF1BF4409D0075B18C /* sfxOllie.wav in Resources */ = {isa = PBXBuildFile; fileRef = 010449A91BF4409D0075B18C /* sfxOllie.wav */; };
+		010449B01BF4409D0075B18C /* sfxSkateOrDie.wav in Resources */ = {isa = PBXBuildFile; fileRef = 010449AA1BF4409D0075B18C /* sfxSkateOrDie.wav */; };
 		0112639D1BF27E7400FBC8D7 /* Obstacle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0112639C1BF27E7400FBC8D7 /* Obstacle.swift */; };
 		0112639F1BF280B700FBC8D7 /* SKNodeUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0112639E1BF280B700FBC8D7 /* SKNodeUpdate.swift */; };
 		011263A11BF2816100FBC8D7 /* Dumpster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011263A01BF2816100FBC8D7 /* Dumpster.swift */; };
@@ -23,12 +29,6 @@
 		011263BB1BF2B88900FBC8D7 /* Grounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011263BA1BF2B88900FBC8D7 /* Grounds.swift */; };
 		011263BF1BF2C5DB00FBC8D7 /* Movable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011263BE1BF2C5DB00FBC8D7 /* Movable.swift */; };
 		011263C11BF2C78A00FBC8D7 /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011263C01BF2C78A00FBC8D7 /* Building.swift */; };
-		011263C91BF2DEA600FBC8D7 /* musicMain.wav in Resources */ = {isa = PBXBuildFile; fileRef = 011263C31BF2DEA600FBC8D7 /* musicMain.wav */; };
-		011263CA1BF2DEA600FBC8D7 /* sfxButtonPress.wav in Resources */ = {isa = PBXBuildFile; fileRef = 011263C41BF2DEA600FBC8D7 /* sfxButtonPress.wav */; };
-		011263CB1BF2DEA600FBC8D7 /* sfxCrash.wav in Resources */ = {isa = PBXBuildFile; fileRef = 011263C51BF2DEA600FBC8D7 /* sfxCrash.wav */; };
-		011263CC1BF2DEA600FBC8D7 /* sfxGameOver.wav in Resources */ = {isa = PBXBuildFile; fileRef = 011263C61BF2DEA600FBC8D7 /* sfxGameOver.wav */; };
-		011263CD1BF2DEA600FBC8D7 /* sfxOllie.wav in Resources */ = {isa = PBXBuildFile; fileRef = 011263C71BF2DEA600FBC8D7 /* sfxOllie.wav */; };
-		011263CE1BF2DEA600FBC8D7 /* sfxSkateOrDie.wav in Resources */ = {isa = PBXBuildFile; fileRef = 011263C81BF2DEA600FBC8D7 /* sfxSkateOrDie.wav */; };
 		011263D01BF2E2BE00FBC8D7 /* DumpsterTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011263CF1BF2E2BE00FBC8D7 /* DumpsterTop.swift */; };
 		011263D21BF327C000FBC8D7 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011263D11BF327C000FBC8D7 /* Utils.swift */; };
 		011263D41BF32CCB00FBC8D7 /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011263D31BF32CCB00FBC8D7 /* Tree.swift */; };
@@ -56,13 +56,7 @@
 		0112643F1BF3FB6800FBC8D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015793871BF2597C0009D1F3 /* AppDelegate.swift */; };
 		011264401BF3FB6800FBC8D7 /* Backgrounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011263B81BF2B59D00FBC8D7 /* Backgrounds.swift */; };
 		011264411BF3FB6800FBC8D7 /* Grounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011263BA1BF2B88900FBC8D7 /* Grounds.swift */; };
-		011264441BF3FB6800FBC8D7 /* sfxButtonPress.wav in Resources */ = {isa = PBXBuildFile; fileRef = 011263C41BF2DEA600FBC8D7 /* sfxButtonPress.wav */; };
-		011264451BF3FB6800FBC8D7 /* sfxCrash.wav in Resources */ = {isa = PBXBuildFile; fileRef = 011263C51BF2DEA600FBC8D7 /* sfxCrash.wav */; };
-		011264461BF3FB6800FBC8D7 /* sfxGameOver.wav in Resources */ = {isa = PBXBuildFile; fileRef = 011263C61BF2DEA600FBC8D7 /* sfxGameOver.wav */; };
-		011264471BF3FB6800FBC8D7 /* sfxSkateOrDie.wav in Resources */ = {isa = PBXBuildFile; fileRef = 011263C81BF2DEA600FBC8D7 /* sfxSkateOrDie.wav */; };
-		0112644A1BF3FB6800FBC8D7 /* sfxOllie.wav in Resources */ = {isa = PBXBuildFile; fileRef = 011263C71BF2DEA600FBC8D7 /* sfxOllie.wav */; };
 		0112644B1BF3FB6800FBC8D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 015793941BF2597C0009D1F3 /* Assets.xcassets */; };
-		0112644C1BF3FB6800FBC8D7 /* musicMain.wav in Resources */ = {isa = PBXBuildFile; fileRef = 011263C31BF2DEA600FBC8D7 /* musicMain.wav */; };
 		0112644D1BF3FB6800FBC8D7 /* Game.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0157938F1BF2597C0009D1F3 /* Game.xcassets */; };
 		011264551BF402CE00FBC8D7 /* Main-Iphone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 011264531BF4013400FBC8D7 /* Main-Iphone.storyboard */; };
 		0112647B1BF4077100FBC8D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 011264791BF4077100FBC8D7 /* LaunchScreen.storyboard */; };
@@ -77,6 +71,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		010449A51BF4409D0075B18C /* musicMain.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = musicMain.wav; sourceTree = "<group>"; };
+		010449A61BF4409D0075B18C /* sfxButtonPress.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sfxButtonPress.wav; sourceTree = "<group>"; };
+		010449A71BF4409D0075B18C /* sfxCrash.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sfxCrash.wav; sourceTree = "<group>"; };
+		010449A81BF4409D0075B18C /* sfxGameOver.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sfxGameOver.wav; sourceTree = "<group>"; };
+		010449A91BF4409D0075B18C /* sfxOllie.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sfxOllie.wav; sourceTree = "<group>"; };
+		010449AA1BF4409D0075B18C /* sfxSkateOrDie.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sfxSkateOrDie.wav; sourceTree = "<group>"; };
 		0112639C1BF27E7400FBC8D7 /* Obstacle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Obstacle.swift; sourceTree = "<group>"; };
 		0112639E1BF280B700FBC8D7 /* SKNodeUpdate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKNodeUpdate.swift; sourceTree = "<group>"; };
 		011263A01BF2816100FBC8D7 /* Dumpster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dumpster.swift; sourceTree = "<group>"; };
@@ -93,12 +93,6 @@
 		011263BA1BF2B88900FBC8D7 /* Grounds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grounds.swift; sourceTree = "<group>"; };
 		011263BE1BF2C5DB00FBC8D7 /* Movable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movable.swift; sourceTree = "<group>"; };
 		011263C01BF2C78A00FBC8D7 /* Building.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Building.swift; sourceTree = "<group>"; };
-		011263C31BF2DEA600FBC8D7 /* musicMain.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = musicMain.wav; path = "../../../Downloads/retro-skate-assets/Audio/musicMain.wav"; sourceTree = "<group>"; };
-		011263C41BF2DEA600FBC8D7 /* sfxButtonPress.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = sfxButtonPress.wav; path = "../../../Downloads/retro-skate-assets/Audio/sfxButtonPress.wav"; sourceTree = "<group>"; };
-		011263C51BF2DEA600FBC8D7 /* sfxCrash.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = sfxCrash.wav; path = "../../../Downloads/retro-skate-assets/Audio/sfxCrash.wav"; sourceTree = "<group>"; };
-		011263C61BF2DEA600FBC8D7 /* sfxGameOver.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = sfxGameOver.wav; path = "../../../Downloads/retro-skate-assets/Audio/sfxGameOver.wav"; sourceTree = "<group>"; };
-		011263C71BF2DEA600FBC8D7 /* sfxOllie.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = sfxOllie.wav; path = "../../../Downloads/retro-skate-assets/Audio/sfxOllie.wav"; sourceTree = "<group>"; };
-		011263C81BF2DEA600FBC8D7 /* sfxSkateOrDie.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = sfxSkateOrDie.wav; path = "../../../Downloads/retro-skate-assets/Audio/sfxSkateOrDie.wav"; sourceTree = "<group>"; };
 		011263CF1BF2E2BE00FBC8D7 /* DumpsterTop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DumpsterTop.swift; sourceTree = "<group>"; };
 		011263D11BF327C000FBC8D7 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		011263D31BF32CCB00FBC8D7 /* Tree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tree.swift; sourceTree = "<group>"; };
@@ -205,12 +199,12 @@
 		011263C21BF2DE9700FBC8D7 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
-				011263C31BF2DEA600FBC8D7 /* musicMain.wav */,
-				011263C41BF2DEA600FBC8D7 /* sfxButtonPress.wav */,
-				011263C51BF2DEA600FBC8D7 /* sfxCrash.wav */,
-				011263C61BF2DEA600FBC8D7 /* sfxGameOver.wav */,
-				011263C71BF2DEA600FBC8D7 /* sfxOllie.wav */,
-				011263C81BF2DEA600FBC8D7 /* sfxSkateOrDie.wav */,
+				010449A51BF4409D0075B18C /* musicMain.wav */,
+				010449A61BF4409D0075B18C /* sfxButtonPress.wav */,
+				010449A71BF4409D0075B18C /* sfxCrash.wav */,
+				010449A81BF4409D0075B18C /* sfxGameOver.wav */,
+				010449A91BF4409D0075B18C /* sfxOllie.wav */,
+				010449AA1BF4409D0075B18C /* sfxSkateOrDie.wav */,
 			);
 			name = Audio;
 			sourceTree = "<group>";
@@ -330,14 +324,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				011264441BF3FB6800FBC8D7 /* sfxButtonPress.wav in Resources */,
-				011264451BF3FB6800FBC8D7 /* sfxCrash.wav in Resources */,
-				011264461BF3FB6800FBC8D7 /* sfxGameOver.wav in Resources */,
 				011EB63A1BF4080C0005F457 /* GameScene.sks in Resources */,
-				011264471BF3FB6800FBC8D7 /* sfxSkateOrDie.wav in Resources */,
-				0112644A1BF3FB6800FBC8D7 /* sfxOllie.wav in Resources */,
 				0112644B1BF3FB6800FBC8D7 /* Assets.xcassets in Resources */,
-				0112644C1BF3FB6800FBC8D7 /* musicMain.wav in Resources */,
 				011264551BF402CE00FBC8D7 /* Main-Iphone.storyboard in Resources */,
 				0112647B1BF4077100FBC8D7 /* LaunchScreen.storyboard in Resources */,
 				0112644D1BF3FB6800FBC8D7 /* Game.xcassets in Resources */,
@@ -348,15 +336,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				011263CA1BF2DEA600FBC8D7 /* sfxButtonPress.wav in Resources */,
-				011263CB1BF2DEA600FBC8D7 /* sfxCrash.wav in Resources */,
-				011263CC1BF2DEA600FBC8D7 /* sfxGameOver.wav in Resources */,
-				011263CE1BF2DEA600FBC8D7 /* sfxSkateOrDie.wav in Resources */,
+				010449AC1BF4409D0075B18C /* sfxButtonPress.wav in Resources */,
+				010449AD1BF4409D0075B18C /* sfxCrash.wav in Resources */,
+				010449AE1BF4409D0075B18C /* sfxGameOver.wav in Resources */,
+				010449B01BF4409D0075B18C /* sfxSkateOrDie.wav in Resources */,
 				015793931BF2597C0009D1F3 /* Main.storyboard in Resources */,
-				011263CD1BF2DEA600FBC8D7 /* sfxOllie.wav in Resources */,
 				011EB6391BF408010005F457 /* GameScene.sks in Resources */,
+				010449AF1BF4409D0075B18C /* sfxOllie.wav in Resources */,
 				015793951BF2597C0009D1F3 /* Assets.xcassets in Resources */,
-				011263C91BF2DEA600FBC8D7 /* musicMain.wav in Resources */,
+				010449AB1BF4409D0075B18C /* musicMain.wav in Resources */,
 				015793901BF2597C0009D1F3 /* Game.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
