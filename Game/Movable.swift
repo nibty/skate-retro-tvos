@@ -11,7 +11,7 @@ import SpriteKit
 class Movable: SKSpriteNode {
     
     var passedPlayer = false
-    var resetPosition:CGFloat = -800
+    var resetPosition:CGFloat = -900
     var startPosition:CGFloat = 1800
     var movingSpeed = GameManager.sharedInstance.movingSpeed
     var moveAction: SKAction!
@@ -29,17 +29,7 @@ class Movable: SKSpriteNode {
     override func update() {
         if self.position.x <= self.resetPosition {
            didExceedBounds()
-            
-            // increse speed
-//            increaseSpeed()
         }
-    }
-    
-    func increaseSpeed() {
-        // increse speed
-        moveAction = SKAction.moveByX(-0.5, y: 0, duration: 0.02)
-        moveForeverAction = SKAction.repeatActionForever(moveAction)
-        self.runAction(moveForeverAction)
     }
     
     func didExceedBounds() {

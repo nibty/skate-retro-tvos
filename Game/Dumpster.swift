@@ -12,13 +12,14 @@ class Dumpster: Obstacle {
     
     convenience init() {
         self.init(imageNamed: "dumpster")
-        self.yPos = 180
+        self.yPos = 150
         self.zPosition = 7
     }
     
     override func initPhysics() {
-        let frontCollider = SKPhysicsBody(rectangleOfSize: CGSizeMake(2, 70), center: CGPointMake(-(self.size.width / 2) + 5, 0))
-        
+//        let frontCollider = SKPhysicsBody(rectangleOfSize: CGSizeMake(5, 130), center: CGPointMake(-(self.size.width / 2) + 5, -30))
+        let frontCollider = SKPhysicsBody(rectangleOfSize: CGSizeMake(self.size.width - 10, self.size.height - 10),  center: CGPointMake(0, -10))
+
         frontCollider.categoryBitMask = GameManager.sharedInstance.COLLIDER_OBSTACLE
         frontCollider.contactTestBitMask = GameManager.sharedInstance.COLLIDER_PLAYER
         

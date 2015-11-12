@@ -46,6 +46,14 @@ class Player: SKSpriteNode {
         }
         
         self.position = CGPointMake(CHAR_X_POSITION, CHAR_Y_POSITION)
+
+        
+        #if TARGET_OS_TV
+            self.position = CGPointMake(CHAR_X_POSITION, CHAR_Y_POSITION)
+        #else
+            self.position = CGPointMake(CHAR_X_POSITION - 100, CHAR_Y_POSITION)
+        #endif
+        
         self.zPosition = 10
         
         playPushAnim()
@@ -82,7 +90,7 @@ class Player: SKSpriteNode {
         if GameManager.sharedInstance.isJumping && !GameManager.sharedInstance.gameOver {
             playOllieAnim()
             self.runAction(GameManager.sharedInstance.jumpSoundAction)
-            self.physicsBody?.applyImpulse(CGVectorMake(0.0, 30))
+            self.physicsBody?.applyImpulse(CGVectorMake(0.0, 50))
         }
     }
     

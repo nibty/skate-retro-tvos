@@ -10,8 +10,8 @@ import SpriteKit
 
 class DumbsterTop: Obstacle {
     convenience init() {
-        self.init(color: UIColor.clearColor(), size: CGSizeMake(110,2))
-        self.yPos = 220
+        self.init(color: UIColor.clearColor(), size: CGSizeMake(120,5))
+        self.yPos = 190
         self.zPosition = 7
     }
     

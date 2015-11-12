@@ -10,7 +10,7 @@ import SpriteKit
 
 class Asphalt: Ground {
     convenience init() {
-        self.init(imageNamed: "asphalt")
+        self.init(imageNamed: "asphalt_med")
         create()
     }
     

@@ -20,18 +20,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var musicPlayer: AVAudioPlayer!
     var gameOverLabel: SKLabelNode!
     var scoreLabel: SKLabelNode!
-
+    
     override func didMoveToView(view: SKView) {
-        let tap = UITapGestureRecognizer(target: self, action: "tapped:")
-        tap.allowedPressTypes = [NSNumber(integer: UIPressType.Select.rawValue)]
-        self.view?.addGestureRecognizer(tap)
         
+        let tap = UITapGestureRecognizer(target: self, action: "tapped:")
         let swipeRecognizerRight = UISwipeGestureRecognizer(target: self, action: "swiped:")
-        swipeRecognizerRight.direction = .Right
-        self.view?.addGestureRecognizer(swipeRecognizerRight)
-
         let swipeRecognizerLeft = UISwipeGestureRecognizer(target: self, action: "swiped:")
+
+        #if TARGET_OS_TV
+            tap.allowedPressTypes = [NSNumber(integer: UIPressType.Select.rawValue)]
+        #endif
+        
+        swipeRecognizerRight.direction = .Right
         swipeRecognizerLeft.direction = .Left
+        self.view?.addGestureRecognizer(tap)
+        self.view?.addGestureRecognizer(swipeRecognizerRight)
         self.view?.addGestureRecognizer(swipeRecognizerLeft)
         
         self.physicsWorld.gravity = CGVectorMake(0.0, -10)
@@ -41,8 +44,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func startGame() {
+        self.backgroundColor = UIColor(red: 73/255.0, green: 148/255.0, blue: 204/255.0, alpha: 1)
+
         playLevelMusic()
-        
+
         for var i = 1; i < 4; i++ {
             let wait = SKAction.waitForDuration(1.8 * Double(i))
             self.runAction(wait, completion:  {() -> Void in
@@ -68,7 +73,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(background)
         
         ground = Grounds()
-        ground.setup();
+        ground.setup()
         self.addChild(ground)
         
         gameOverLabel = SKLabelNode(fontNamed: "Arial")
@@ -80,7 +85,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         GameManager.sharedInstance.score = 0
         scoreLabel = SKLabelNode(fontNamed: "Arial")
         scoreLabel.fontSize = 40
-        scoreLabel.position = CGPointMake(950, 600)
+        placeScoreLabel()
         scoreLabel.zPosition = 9
         scoreLabel.text = "0"
         self.addChild(scoreLabel)
@@ -123,6 +128,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
     
     func restartGame() {
+        GameManager.sharedInstance.gameOver = false
+
         player = nil
         background = nil
         ground = nil
@@ -132,7 +139,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         gameOverLabel = nil
         
         self.removeAllChildren()
-        GameManager.sharedInstance.gameOver = false
 
         self.startGame()
     }
@@ -185,7 +191,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         else if contact.bodyA.categoryBitMask == GameManager.sharedInstance.COLLIDER_RIDEABLE || contact.bodyB.categoryBitMask == GameManager.sharedInstance.COLLIDER_RIDEABLE  {
-            print("contact")
             GameManager.sharedInstance.isJumping = false
         }
     }
@@ -226,6 +231,38 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         return random
+    }
+    
+    override func didChangeSize(oldSize: CGSize) {
+        super.didChangeSize(oldSize)
+        
+        if (self.size.height < self.size.width) {
+            self.view?.scene?.anchorPoint = CGPointMake(0, -0.2)
+        } else {
+            self.view?.scene?.anchorPoint = CGPointMake(0, 0)
+        }
+        
+        if let label = scoreLabel {
+            placeScoreLabel()
+        }
+        
+        if let label = gameOverLabel {
+            label.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))
+        }
+        
+
+    }
+    
+    func isLandscape() -> Bool {
+        return self.size.height < self.size.width
+    }
+    
+    func placeScoreLabel() {
+        if isLandscape() {
+            scoreLabel.position = CGPointMake(self.frame.size.width - 40, self.frame.size.height)
+        } else {
+            scoreLabel.position = CGPointMake(self.frame.size.width - 40, self.frame.size.height - 70)
+        }
     }
 }
 

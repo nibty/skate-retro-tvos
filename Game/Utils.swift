@@ -17,4 +17,10 @@ class Utils {
         
         return random
     }
+    
+    static func getPhoneSize() -> CGRect {
+        let screenSize: CGRect = UIScreen.mainScreen().bounds
+    
+        return screenSize
+    }
 }
