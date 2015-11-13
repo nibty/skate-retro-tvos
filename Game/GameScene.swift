@@ -94,7 +94,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(gameOverLabel)
       
         // Add score label
-        GameManager.sharedInstance.score = 0
         scoreLabel = SKLabelNode(fontNamed: "Arial")
         scoreLabel.fontSize = 40
         placeScoreLabel()
@@ -141,6 +140,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func restartGame() {
         GameManager.sharedInstance.gameOver = false
+        GameManager.sharedInstance.score = 0
 
         player = nil
         background = nil
@@ -247,7 +247,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // appletv
         #if os(tvOS)
-            scoreLabel.position = CGPointMake(size.width + GameManager.sharedInstance.SCORE_X_ADJUSTMENT_POS_APPLETV, size.height + GameManager.sharedInstance.SCORE_Y_ADJUSTMENT_POS_APPLETV)
+            scoreLabel.position = CGPointMake(GameManager.sharedInstance.SCORE_POSITION_X_APPLETV, GameManager.sharedInstance.SCORE_POSITION_Y_APPLETV)
         #else
 
             // iphone landscape
