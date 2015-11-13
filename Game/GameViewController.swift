@@ -34,9 +34,9 @@ class GameViewController: UIViewController {
                 self.scene.anchorPoint = CGPointMake(0, -0.1)
                 
             #else
+                // setup display for iphones and ipads
                 self.scene.scaleMode = .ResizeFill
                 
-                // setup display for iphones
                 if Utils.getPhoneSize().width <= 414 {
                     
                     if Utils.isLandscape() {
@@ -47,7 +47,6 @@ class GameViewController: UIViewController {
                         self.scene.anchorPoint = CGPointMake(0, 0.0)
                     }
                 }
-                
             #endif
             
             skView.presentScene(self.scene)

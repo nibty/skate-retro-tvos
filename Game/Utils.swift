@@ -9,6 +9,7 @@
 import SpriteKit
 
 class Utils {
+    
     static func randomStart() -> CGFloat {
         let lower : UInt32 = 1000
         let upper : UInt32 = 1500
@@ -33,12 +34,8 @@ class Utils {
     static func isLandscape() -> Bool {
         #if !os(tvOS)
             if UIScreen.mainScreen().bounds.size.width > UIScreen.mainScreen().bounds.size.height {
-                print("landscape")
                 return true
             }
-            
-            print("not landscape")
-            
         #endif
         
         return false

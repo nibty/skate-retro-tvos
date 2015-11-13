@@ -14,6 +14,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var player:Player!
     var background:Backgrounds!
     var ground:Grounds!
+    
     var obstacles = [SKSpriteNode]()
     var scenery = [SKSpriteNode]()
 
@@ -23,24 +24,29 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func didMoveToView(view: SKView) {
         
+        // Setup player controls
         let tap = UITapGestureRecognizer(target: self, action: "tapped:")
         let swipeRecognizerRight = UISwipeGestureRecognizer(target: self, action: "swiped:")
         let swipeRecognizerLeft = UISwipeGestureRecognizer(target: self, action: "swiped:")
-
-        #if TARGET_OS_TV
-            tap.allowedPressTypes = [NSNumber(integer: UIPressType.Select.rawValue)]
-        #endif
-        
         swipeRecognizerRight.direction = .Right
         swipeRecognizerLeft.direction = .Left
         self.view?.addGestureRecognizer(tap)
         self.view?.addGestureRecognizer(swipeRecognizerRight)
         self.view?.addGestureRecognizer(swipeRecognizerLeft)
         
+        // Setup world physics
         self.physicsWorld.gravity = CGVectorMake(0.0, -10)
         self.physicsWorld.contactDelegate = self
         
         startGame()
+    }
+    
+    override func update(currentTime: CFTimeInterval) {
+        scoreLabel.text = String(GameManager.sharedInstance.score)
+        
+        for child in self.children {
+            child.update()
+        }
     }
     
     func startGame() {
@@ -48,6 +54,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         playLevelMusic()
 
+        // Add obsticals
         for var i = 1; i < 4; i++ {
             let wait = SKAction.waitForDuration(1.8 * Double(i))
             self.runAction(wait, completion:  {() -> Void in
@@ -65,23 +72,28 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             })
         }
         
+        // Add Player
         player = Player()
         self.addChild(player)
         
+        // Add backgrounds
         background = Backgrounds()
         background.setup()
         self.addChild(background)
         
+        // Add ground
         ground = Grounds()
         ground.setup()
         self.addChild(ground)
         
+        // Add gameover label
         gameOverLabel = SKLabelNode(fontNamed: "Arial")
         gameOverLabel.fontSize = 40
         gameOverLabel.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))
         gameOverLabel.zPosition = 9
         self.addChild(gameOverLabel)
       
+        // Add score label
         GameManager.sharedInstance.score = 0
         scoreLabel = SKLabelNode(fontNamed: "Arial")
         scoreLabel.fontSize = 40
@@ -90,6 +102,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel.text = "0"
         self.addChild(scoreLabel)
         
+        // Add buildings
         for var i = 0; i < 3; i++ {
             let wait = SKAction.waitForDuration(2.0 * Double(i))
             self.runAction(wait, completion:  {() -> Void in
@@ -99,7 +112,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 building.startMoving()
             })
         }
-                
+        
+        // Add some trees
         for var i = 1; i < 3; i++ {
             let wait = SKAction.waitForDuration(2.3 * Double(i))
             self.runAction(wait, completion:  {() -> Void in
@@ -110,22 +124,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             })
         }
         
-        let cloud = Cloud()
-        cloud.movingSpeed = -0.2
-        cloud.startPosition = 100
-        self.scenery.append(cloud)
-        self.addChild(cloud);
-        cloud.startMoving()
-        
-        let cloud2 = Cloud()
-        cloud2.movingSpeed = -0.2
-        cloud2.startPosition = 800
-        self.scenery.append(cloud2)
-        self.addChild(cloud2);
-        cloud2.startMoving()
+        // Add clouds
+        for var i = 0; i < 2; i++ {
+            let cloud = Cloud()
+            cloud.movingSpeed = -0.2
+            if (i == 1) {
+                cloud.startPosition = 100
+            } else {
+                cloud.startPosition = 800
+            }
+            self.scenery.append(cloud)
+            self.addChild(cloud);
+            cloud.startMoving()
+        }
     }
-    
-
     
     func restartGame() {
         GameManager.sharedInstance.gameOver = false
@@ -143,15 +155,55 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.startGame()
     }
     
-
-    override func update(currentTime: CFTimeInterval) {
-        scoreLabel.text = String(GameManager.sharedInstance.score)
+    func stopGame() {
+        musicPlayer.stop()
         
-        for child in self.children {
-            child.update()
+        self.removeAllActions()
+        self.background.removeAllActions()
+        self.ground.removeAllActions()
+        
+        for obstacle in obstacles {
+            obstacle.removeAllActions()
+        }
+        
+        for scene in scenery {
+            scene.removeAllActions()
+        }
+        
+        player.playCrashAnim()
+        
+        gameOver()
+    }
+    
+    func didBeginContact(contact: SKPhysicsContact) {
+        
+        // Crash detected. End game
+        if contact.bodyA.categoryBitMask == GameManager.sharedInstance.COLLIDER_OBSTACLE || contact.bodyB.categoryBitMask == GameManager.sharedInstance.COLLIDER_OBSTACLE {
+            stopGame()
+        }
+            
+        // Contact on skateable surface
+        else if contact.bodyA.categoryBitMask == GameManager.sharedInstance.COLLIDER_RIDEABLE || contact.bodyB.categoryBitMask == GameManager.sharedInstance.COLLIDER_RIDEABLE  {
+            GameManager.sharedInstance.isJumping = false
         }
     }
-
+    
+    func playLevelMusic() {
+        let levelMusicURL = NSBundle.mainBundle().URLForResource("musicMain", withExtension: "wav")
+        
+        do {
+            musicPlayer = try AVAudioPlayer(contentsOfURL: levelMusicURL!)
+            musicPlayer.numberOfLoops = -1
+            musicPlayer.prepareToPlay()
+            musicPlayer.play()
+        } catch {}
+    }
+    
+    func gameOver() {
+        GameManager.sharedInstance.gameOver = true
+        gameOverLabel.text = "Game Over"
+    }
+    
     func tapped(gesture: UIGestureRecognizer) {
         if !GameManager.sharedInstance.gameOver {
             player.jump()
@@ -166,71 +218,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         } else {
             restartGame()
         }
-    }
-    
-    func didBeginContact(contact: SKPhysicsContact) {
-        if contact.bodyA.categoryBitMask == GameManager.sharedInstance.COLLIDER_OBSTACLE || contact.bodyB.categoryBitMask == GameManager.sharedInstance.COLLIDER_OBSTACLE {
-            
-            musicPlayer.stop()
-
-            self.removeAllActions()
-            self.background.removeAllActions()
-            self.ground.removeAllActions()
-            
-            for obstacle in obstacles {
-                obstacle.removeAllActions()
-            }
-            
-            for scene in scenery {
-                scene.removeAllActions()
-            }
-            
-            player.playCrashAnim()
-            
-            gameOver()
-        }
-        
-        else if contact.bodyA.categoryBitMask == GameManager.sharedInstance.COLLIDER_RIDEABLE || contact.bodyB.categoryBitMask == GameManager.sharedInstance.COLLIDER_RIDEABLE  {
-            GameManager.sharedInstance.isJumping = false
-        }
-    }
-    
-    func playLevelMusic() {
-        let levelMusicURL = NSBundle.mainBundle().URLForResource("musicMain", withExtension: "wav")
-        
-        do {
-            musicPlayer = try AVAudioPlayer(contentsOfURL: levelMusicURL!)
-            musicPlayer.numberOfLoops = -1
-            musicPlayer.prepareToPlay()
-            musicPlayer.play()
-        } catch {
-            
-        }
-    }
-    
-    func gameOver() {
-        GameManager.sharedInstance.gameOver = true
-        gameOverLabel.text = "Game Over"
-    }
-    
-    func randomNumber() -> Double {
-        return Double(Double(arc4random()) / Double(UINT32_MAX)) + 1
-    }
-    
-    func randomStart(lastStart: CGFloat) -> CGFloat {
-        let lower : UInt32 = 1000
-        let upper : UInt32 = 1800
-        
-        var random = CGFloat(arc4random_uniform(upper - lower) + lower)
-        
-        let diff = abs(random - lastStart)
-        
-        
-        if diff < 200 {
-            random += (200 - diff)
-        }
-        
-        return random
     }
     
     override func didChangeSize(oldSize: CGSize) {
@@ -249,8 +236,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if let label = gameOverLabel {
             label.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))
         }
-        
-
     }
     
     func isLandscape() -> Bool {
@@ -259,18 +244,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func placeScoreLabel() {
         let size = UIScreen.mainScreen().bounds.size
-        
-        // setup display for iphones
-//        if Utils.getPhoneSize().width <= 414 {
-//            
-//            if Utils.isLandscape() {
-//                self.scene!.anchorPoint = CGPointMake(0, -0.2)
-//            }
-//        } else {
-//            if Utils.isLandscape() {
-//                self.scene!.anchorPoint = CGPointMake(0, 0.0)
-//            }
-//        }
         
         // appletv
         #if os(tvOS)

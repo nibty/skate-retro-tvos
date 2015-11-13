@@ -15,9 +15,6 @@ class Asphalt: Ground {
     }
     
     func create() {
-//        let collider = SKPhysicsBody(rectangleOfSize: CGSizeMake(self.size.width, 5), center: CGPointMake(0, -20))
-//        collider.dynamic = false
-//        self.physicsBody = collider
-        yPos = 140
+        yPos = GameManager.sharedInstance.ASPHALT_Y_POSTION
     }
 }

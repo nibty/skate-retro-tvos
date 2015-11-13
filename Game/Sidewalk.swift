@@ -15,7 +15,7 @@ class Sidewalk: Ground {
     }
     
     func create() {
-        self.zPosition = 4
-        self.yPos = 185
+        self.zPosition = GameManager.sharedInstance.SIDEWALK_Z_POSTION
+        self.yPos = GameManager.sharedInstance.SIDEWALK_Y_POSTION
     }
 }

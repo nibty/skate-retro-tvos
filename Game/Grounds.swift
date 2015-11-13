@@ -11,29 +11,27 @@ import SpriteKit
 class Grounds: SKNode {
     
     // Ground setup
-    let ASP_PIECES = 25
-    let SIDEWALK_PIECES = 35
-    let GROUND_X_RESET: CGFloat = -150
     var sidewalkPices = [Ground]()
     var frontSidewalkPices = [Ground]()
     var asphaltPieces = [Ground]()
 
     override func update() {
+        
+        // Update asphalt
         for var i = 0; i < asphaltPieces.count; i++ {
             updateGround(asphaltPieces, groundIndex: i)
         }
         
+        // Update sidewalk
         for var i = 0; i < sidewalkPices.count; i++ {
             updateGround(sidewalkPices, groundIndex: i)
         }
-        
-//        for var i = 0; i < frontSidewalkPices.count; i++ {
-//            updateGround(frontSidewalkPices, groundIndex: i)
-//        }
     }
 
     func setup() {
-        for var i = 0; i < ASP_PIECES; i++ {
+        
+        // Setup asphalt pieces
+        for var i = 0; i < GameManager.sharedInstance.ASP_PIECES; i++ {
             let asphalt = Asphalt()
             asphalt.startMoving()
             asphaltPieces.append(asphalt)
@@ -41,7 +39,8 @@ class Grounds: SKNode {
             self.addChild(asphalt)
         }
         
-        for var i = 0; i < SIDEWALK_PIECES; i++ {
+        // Setup sidewalk pieces
+        for var i = 0; i < GameManager.sharedInstance.SIDEWALK_PIECES; i++ {
             let sidewalk = Sidewalk()
             sidewalk.startMoving()
             sidewalkPices.append(sidewalk)
@@ -49,20 +48,10 @@ class Grounds: SKNode {
             self.addChild(sidewalk)
         }
         
-//        if Utils.getPhoneSize().width <= 414 {
-//            for var i = 0; i < SIDEWALK_PIECES; i++ {
-//                let frontSidewalk = Sidewalk()
-//                frontSidewalk.yPos = -55
-//                frontSidewalk.startMoving()
-//                frontSidewalkPices.append(frontSidewalk)
-//                setupGroud(frontSidewalkPices, index: i)
-//                self.addChild(frontSidewalk)
-//            }
-//        }
-        
-        let floor = SKSpriteNode(color: UIColor.clearColor(), size: CGSizeMake(1080, 5))
+        // Setup floor collider so the player will not fall through
+        let floor = SKSpriteNode(color: UIColor.clearColor(), size: CGSizeMake(GameManager.sharedInstance.FLOOR_WIDTH, GameManager.sharedInstance.FLOOR_HEIGHT))
         self.addChild(floor)
-        floor.position = CGPointMake(540, 115)
+        floor.position = CGPointMake(GameManager.sharedInstance.FLOOR_POSITION_X, GameManager.sharedInstance.FLOOR_POSITION_Y)
         floor.physicsBody = SKPhysicsBody(rectangleOfSize: floor.size)
         floor.physicsBody!.categoryBitMask = GameManager.sharedInstance.COLLIDER_RIDEABLE
         floor.physicsBody!.contactTestBitMask = GameManager.sharedInstance.COLLIDER_PLAYER
@@ -71,7 +60,7 @@ class Grounds: SKNode {
     
     func setupGroud(grounds: [Ground], index: Int) {
         if index == 0 {
-            grounds[index].position = CGPointMake(-200, grounds[index].yPos)
+            grounds[index].position = CGPointMake(GameManager.sharedInstance.GROUND_X_RESET, grounds[index].yPos)
         } else {
             grounds[index].position = CGPointMake(grounds[index].size.width + grounds[index - 1].position.x, grounds[index - 1].position.y)
         }
@@ -80,7 +69,7 @@ class Grounds: SKNode {
     func updateGround(grounds: [Ground], groundIndex: Int) {
         var index: Int!
         
-        if grounds[groundIndex].position.x <= GROUND_X_RESET {
+        if grounds[groundIndex].position.x <= GameManager.sharedInstance.GROUND_X_RESET {
             
             if groundIndex == 0 {
                 index = grounds.count - 1

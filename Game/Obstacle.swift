@@ -17,7 +17,6 @@ class Obstacle: Movable {
     
     func initPhysics() {
         self.physicsBody?.dynamic = false
-
     }
 }
 

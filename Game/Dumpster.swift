@@ -17,7 +17,6 @@ class Dumpster: Obstacle {
     }
     
     override func initPhysics() {
-//        let frontCollider = SKPhysicsBody(rectangleOfSize: CGSizeMake(5, 130), center: CGPointMake(-(self.size.width / 2) + 5, -30))
         let frontCollider = SKPhysicsBody(rectangleOfSize: CGSizeMake(self.size.width - 10, self.size.height - 10),  center: CGPointMake(0, -10))
 
         frontCollider.categoryBitMask = GameManager.sharedInstance.COLLIDER_OBSTACLE
