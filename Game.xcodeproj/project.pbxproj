@@ -74,6 +74,7 @@
 		015793931BF2597C0009D1F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 015793911BF2597C0009D1F3 /* Main.storyboard */; };
 		015793951BF2597C0009D1F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 015793941BF2597C0009D1F3 /* Assets.xcassets */; };
 		01625AAC1BF4538D0069C339 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01625AAB1BF4538D0069C339 /* Launch Screen.storyboard */; };
+		016B24AB1BF5B00F0031ABE4 /* GameIphoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016B24AA1BF5B00F0031ABE4 /* GameIphoneViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -116,6 +117,7 @@
 		015793941BF2597C0009D1F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		015793961BF2597C0009D1F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		01625AAB1BF4538D0069C339 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		016B24AA1BF5B00F0031ABE4 /* GameIphoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameIphoneViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,6 +251,7 @@
 				015793961BF2597C0009D1F3 /* Info.plist */,
 				011264531BF4013400FBC8D7 /* Main-Iphone.storyboard */,
 				01625AAB1BF4538D0069C339 /* Launch Screen.storyboard */,
+				016B24AA1BF5B00F0031ABE4 /* GameIphoneViewController.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 				011264351BF3FB6800FBC8D7 /* Asphalt.swift in Sources */,
 				011264361BF3FB6800FBC8D7 /* Dumpster.swift in Sources */,
 				011264371BF3FB6800FBC8D7 /* Background.swift in Sources */,
+				016B24AB1BF5B00F0031ABE4 /* GameIphoneViewController.swift in Sources */,
 				011264381BF3FB6800FBC8D7 /* Cloud.swift in Sources */,
 				011264391BF3FB6800FBC8D7 /* FrontBG.swift in Sources */,
 				0112643A1BF3FB6800FBC8D7 /* Movable.swift in Sources */,
