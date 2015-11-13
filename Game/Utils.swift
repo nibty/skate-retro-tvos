@@ -18,9 +18,29 @@ class Utils {
         return random
     }
     
-    static func getPhoneSize() -> CGRect {
-        let screenSize: CGRect = UIScreen.mainScreen().bounds
-    
+    static func getPhoneSize() -> CGSize {
+        var screenSize: CGSize!
+        
+        if isLandscape() {
+            screenSize = CGSizeMake(UIScreen.mainScreen().bounds.size.height, UIScreen.mainScreen().bounds.size.width)
+        } else {
+            screenSize = UIScreen.mainScreen().bounds.size
+        }
+        
         return screenSize
+    }
+    
+    static func isLandscape() -> Bool {
+        #if !os(tvOS)
+            if UIScreen.mainScreen().bounds.size.width > UIScreen.mainScreen().bounds.size.height {
+                print("landscape")
+                return true
+            }
+            
+            print("not landscape")
+            
+        #endif
+        
+        return false
     }
 }

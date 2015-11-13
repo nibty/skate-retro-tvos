@@ -28,15 +28,27 @@ class GameViewController: UIViewController {
             /* Sprite Kit applies additional optimizations to improve rendering performance */
             skView.ignoresSiblingOrder = true
             
-            /* Set the scale mode to scale to fit the window */
-            
-            if Utils.getPhoneSize().width <= 414 {
-                self.scene.scaleMode = .ResizeFill
-//                self.scene.anchorPoint = CGPointMake(0, -0.1)
-                self.scene.size.width = 700
-            } else {
+            #if os(tvOS)
+                // Set up for apple tv
                 self.scene.scaleMode = .AspectFit
-            }
+                self.scene.anchorPoint = CGPointMake(0, -0.1)
+                
+            #else
+                self.scene.scaleMode = .ResizeFill
+                
+                // setup display for iphones
+                if Utils.getPhoneSize().width <= 414 {
+                    
+                    if Utils.isLandscape() {
+                        self.scene.anchorPoint = CGPointMake(0, -0.2)
+                    }
+                } else {
+                    if Utils.isLandscape() {
+                        self.scene.anchorPoint = CGPointMake(0, 0.0)
+                    }
+                }
+                
+            #endif
             
             skView.presentScene(self.scene)
         }

@@ -258,23 +258,46 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func placeScoreLabel() {
+        let size = UIScreen.mainScreen().bounds.size
         
-        let size = Utils.getPhoneSize()
+        // setup display for iphones
+//        if Utils.getPhoneSize().width <= 414 {
+//            
+//            if Utils.isLandscape() {
+//                self.scene!.anchorPoint = CGPointMake(0, -0.2)
+//            }
+//        } else {
+//            if Utils.isLandscape() {
+//                self.scene!.anchorPoint = CGPointMake(0, 0.0)
+//            }
+//        }
         
-        print(size.width)
-        print(" ")
-        print(size.height)
-        
+        // appletv
         #if os(tvOS)
-            scoreLabel.position = CGPointMake(size.width + GameManager.sharedInstance.SCORE_X_ADJUSTMENT_POS_APPLETV, size.size.height + GameManager.sharedInstance.SCORE_Y_ADJUSTMENT_POS_APPLETV)
+            scoreLabel.position = CGPointMake(size.width + GameManager.sharedInstance.SCORE_X_ADJUSTMENT_POS_APPLETV, size.height + GameManager.sharedInstance.SCORE_Y_ADJUSTMENT_POS_APPLETV)
         #else
 
-        if isLandscape() {
-            print("here")
-            scoreLabel.position = CGPointMake(size.size.width + GameManager.sharedInstance.SCORE_X_ADJUSTMENT_POS_LANDSCAPE, size.size.height + GameManager.sharedInstance.SCORE_Y_ADJUSTMENT_POS_LANDSCAPE)
+            // iphone landscape
+        if isLandscape() && Utils.getPhoneSize().width <= 414 {
+            scoreLabel.position = CGPointMake(size.width + GameManager.sharedInstance.SCORE_X_ADJUSTMENT_POS_LANDSCAPE, size.height + GameManager.sharedInstance.SCORE_Y_ADJUSTMENT_POS_LANDSCAPE)
+            self.scene!.anchorPoint = CGPointMake(0, -0.2)
+            
+            // iphone portrait
+        } else if Utils.getPhoneSize().width <= 414 {
+            scoreLabel.position = CGPointMake(size.width + GameManager.sharedInstance.SCORE_X_ADJUSTMENT_POS_PORTRAIT, size.height + GameManager.sharedInstance.SCORE_Y_ADJUSTMENT_POS_PORTRAIT)
+            self.scene!.anchorPoint = CGPointMake(0, 0.0)
+        
+            // ipad landscape
+        } else if isLandscape() && Utils.getPhoneSize().width > 414 {
+                scoreLabel.position = CGPointMake(size.width + GameManager.sharedInstance.SCORE_X_ADJUSTMENT_POS_PORTRAIT, size.height + GameManager.sharedInstance.SCORE_Y_ADJUSTMENT_POS_PORTRAIT)
+                self.scene!.anchorPoint = CGPointMake(0, 0.0)
+       
+            // ipad portrait
         } else {
-            scoreLabel.position = CGPointMake(size.size.width + GameManager.sharedInstance.SCORE_X_ADJUSTMENT_POS_PORTRAIT, size.size.height + GameManager.sharedInstance.SCORE_Y_ADJUSTMENT_POS_PORTRAIT)
+            scoreLabel.position = CGPointMake(size.width + GameManager.sharedInstance.SCORE_X_ADJUSTMENT_POS_PORTRAIT, size.height + GameManager.sharedInstance.SCORE_Y_ADJUSTMENT_POS_PORTRAIT)
+            self.scene!.anchorPoint = CGPointMake(0, 0.0)
         }
+            
         #endif
     }
 }
