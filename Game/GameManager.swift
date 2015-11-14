@@ -51,6 +51,7 @@ class GameManager {
     // Movables setup
     var dumpsterXStartPosition:CGFloat = 0
     var isJumping = false
+    var isTricking = false
     var movingSpeed:CGFloat = -8.5
     
     // Misc

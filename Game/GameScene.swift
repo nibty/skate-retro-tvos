@@ -26,7 +26,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Setup player controls
         let tap = UITapGestureRecognizer(target: self, action: "tapped:")
         let swipeRecognizerRight = UISwipeGestureRecognizer(target: self, action: "swiped:")
-        let swipeRecognizerLeft = UISwipeGestureRecognizer(target: self, action: "swiped:")
+        let swipeRecognizerLeft = UISwipeGestureRecognizer(target: self, action: "swipedLeft:")
         swipeRecognizerRight.direction = .Right
         swipeRecognizerLeft.direction = .Left
         self.view?.addGestureRecognizer(tap)
@@ -183,6 +183,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Contact on skateable surface
         else if contact.bodyA.categoryBitMask == GameManager.sharedInstance.COLLIDER_RIDEABLE || contact.bodyB.categoryBitMask == GameManager.sharedInstance.COLLIDER_RIDEABLE  {
             GameManager.sharedInstance.isJumping = false
+            GameManager.sharedInstance.isTricking = false
         }
     }
     
@@ -210,6 +211,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func swiped(gesture: UIGestureRecognizer) {
         if !GameManager.sharedInstance.gameOver {
             player.ollie()
+        } else {
+            restartGame()
+        }
+    }
+    
+    func swipedLeft(gesture: UIGestureRecognizer) {
+        if !GameManager.sharedInstance.gameOver {
+            player.flip()
         } else {
             restartGame()
         }

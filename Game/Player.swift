@@ -14,7 +14,8 @@ class Player: SKSpriteNode {
     var charPushFrames = [SKTexture]()
     var charCrashFrames = [SKTexture]()
     var charOllieFrames = [SKTexture]()
-    var isJumping = false
+    var charFlipFrames = [SKTexture]()
+    
 
     convenience init() {
         self.init(imageNamed: "push0")
@@ -26,6 +27,7 @@ class Player: SKSpriteNode {
             
             if floor((self.physicsBody?.velocity.dy)!) == 0 {
                 GameManager.sharedInstance.isJumping = false
+                GameManager.sharedInstance.isTricking = false
             }
         }
     }
@@ -43,6 +45,10 @@ class Player: SKSpriteNode {
         
         for var x = 0; x < 10; x++ {
             charOllieFrames.append(SKTexture(imageNamed: "ollie\(x)"))
+        }
+        
+        for var x = 0; x < 12; x++ {
+            charFlipFrames.append(SKTexture(imageNamed: "flip\(x)"))
         }
         
         #if os(tvOS)
@@ -74,11 +80,36 @@ class Player: SKSpriteNode {
     }
     
     func ollie() {
-        if GameManager.sharedInstance.isJumping && !GameManager.sharedInstance.gameOver {
+        if GameManager.sharedInstance.isJumping && !GameManager.sharedInstance.gameOver && !GameManager.sharedInstance.isTricking {
+            GameManager.sharedInstance.isTricking = true;
             playOllieAnim()
             
             self.runAction(AudioManager.sharedInstance.jumpSoundAction)
-            self.physicsBody?.applyImpulse(CGVectorMake(0.0, 50))
+            self.physicsBody?.applyImpulse(CGVectorMake(0.0, 40))
+            GameManager.sharedInstance.score++
+        }
+    }
+    
+    func flip() {
+        if GameManager.sharedInstance.isJumping && !GameManager.sharedInstance.gameOver && !GameManager.sharedInstance.isTricking {
+            GameManager.sharedInstance.isTricking = true;
+            playFlipAnim()
+            
+            self.runAction(AudioManager.sharedInstance.jumpSoundAction)
+            self.physicsBody?.applyImpulse(CGVectorMake(0.0, 40))
+            GameManager.sharedInstance.score++
+        }
+    }
+    
+    func playFlipAnim() {
+        if !GameManager.sharedInstance.gameOver {
+            self.removeAllActions()
+            
+            self.runAction(SKAction.animateWithTextures(charFlipFrames, timePerFrame: 0.05))
+            let wait = SKAction.waitForDuration(0.55)
+            self.runAction(wait, completion:  {() -> Void in
+                self.playPushAnim()
+            })
         }
     }
     
