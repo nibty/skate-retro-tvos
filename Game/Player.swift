@@ -12,12 +12,10 @@ class Player: SKSpriteNode {
     
     // Character setup
     var charPushFrames = [SKTexture]()
-    let CHAR_X_POSITION:CGFloat = 158
-    let CHAR_Y_POSITION:CGFloat = 175
-    var isJumping = false
     var charCrashFrames = [SKTexture]()
     var charOllieFrames = [SKTexture]()
-    
+    var isJumping = false
+
     convenience init() {
         self.init(imageNamed: "push0")
         createCharacter()
@@ -33,6 +31,8 @@ class Player: SKSpriteNode {
     }
     
     func createCharacter() {
+        self.zPosition = GameManager.sharedInstance.PLAYER_Z_POSITION
+
         for var x = 0; x < 12; x++ {
             charPushFrames.append(SKTexture(imageNamed: "push\(x)"))
         }
@@ -45,26 +45,12 @@ class Player: SKSpriteNode {
             charOllieFrames.append(SKTexture(imageNamed: "ollie\(x)"))
         }
         
-        self.position = CGPointMake(CHAR_X_POSITION, CHAR_Y_POSITION)
-
-        
         #if os(tvOS)
-            self.position = CGPointMake(CHAR_X_POSITION, CHAR_Y_POSITION)
+            self.position = CGPointMake(GameManager.sharedInstance.CHAR_X_POSITION, GameManager.sharedInstance.CHAR_Y_POSITION)
         #else
-            self.position = CGPointMake(CHAR_X_POSITION - 100, CHAR_Y_POSITION)
+            // move player to the left on iphones
+            self.position = CGPointMake(GameManager.sharedInstance.CHAR_X_POSITION - 100, GameManager.sharedInstance.CHAR_Y_POSITION)
         #endif
-        
-        self.zPosition = 10
-        
-        playPushAnim()
-        
-//        let frontColliderSize = CGSizeMake(5, self.size.height * 0.80)
-//        let frontCollider = SKPhysicsBody(rectangleOfSize: frontColliderSize, center: CGPointMake(25, 0))
-//        
-//        let bottomColliderSize = CGSizeMake(self.size.width / 2, 2)
-//        let bottomCollider = SKPhysicsBody(rectangleOfSize: bottomColliderSize, center: CGPointMake(0, -(self.size.height / 2) + 5))
-//        
-//        self.physicsBody = SKPhysicsBody(bodies: [frontCollider, bottomCollider])
 
         self.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(self.size.width - 50, self.size.height - 20))
         self.physicsBody?.restitution = 0
@@ -72,9 +58,10 @@ class Player: SKSpriteNode {
         self.physicsBody?.allowsRotation = false
         self.physicsBody?.mass = 0.1
         self.physicsBody?.dynamic = true
-        
         self.physicsBody?.categoryBitMask = GameManager.sharedInstance.COLLIDER_PLAYER
         self.physicsBody?.contactTestBitMask = GameManager.sharedInstance.COLLIDER_OBSTACLE
+        
+        playPushAnim()
     }
     
     func jump() {
@@ -82,14 +69,15 @@ class Player: SKSpriteNode {
             GameManager.sharedInstance.isJumping = true
             
             self.physicsBody?.applyImpulse(CGVectorMake(0.0, 70.0))
-            self.runAction(GameManager.sharedInstance.jumpSoundAction)
+            self.runAction(AudioManager.sharedInstance.jumpSoundAction)
         }
     }
     
     func ollie() {
         if GameManager.sharedInstance.isJumping && !GameManager.sharedInstance.gameOver {
             playOllieAnim()
-            self.runAction(GameManager.sharedInstance.jumpSoundAction)
+            
+            self.runAction(AudioManager.sharedInstance.jumpSoundAction)
             self.physicsBody?.applyImpulse(CGVectorMake(0.0, 50))
         }
     }
@@ -97,7 +85,9 @@ class Player: SKSpriteNode {
     func playCrashAnim() {
         if !GameManager.sharedInstance.gameOver {
             self.removeAllActions()
-            self.runAction(GameManager.sharedInstance.gameOverSoundAction)
+            
+            self.runAction(AudioManager.sharedInstance.gameOverSoundAction)
+    
             self.runAction(SKAction.animateWithTextures(charCrashFrames, timePerFrame: 0.05))
         }
     }

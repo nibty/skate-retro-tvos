@@ -25,6 +25,17 @@ class GameManager {
     let SCORE_POSITION_X_APPLETV:CGFloat = 1100
     let SCORE_POSITION_Y_APPLETV:CGFloat = 700
     
+    // Player setup
+    let CHAR_X_POSITION: CGFloat = 158
+    let CHAR_Y_POSITION: CGFloat = 175
+    let PLAYER_Z_POSITION: CGFloat = 10
+    
+    // World setup
+    let GRAVITY_Y: CGFloat = -10
+    
+    // Background setup
+    let BACKGROUND_COLOR = UIColor(red: 73/255.0, green: 148/255.0, blue: 204/255.0, alpha: 1)
+
     // Ground setup
     let ASP_PIECES = 25
     let SIDEWALK_PIECES = 35
@@ -42,15 +53,9 @@ class GameManager {
     var isJumping = false
     var movingSpeed:CGFloat = -8.5
     
-    // Sound effects
-    var jumpSoundAction = SKAction.playSoundFileNamed("sfxOllie.wav", waitForCompletion: false)
-    var gameOverSoundAction = SKAction.playSoundFileNamed("sfxGameOver.wav", waitForCompletion: false)
+    // Misc
+    let IPHONE_PLUS_WIDTH = 414
     
     var gameOver = false
-    
     var score = 0
-    
-    func incrementScore() {
-        score++
-    }
 }

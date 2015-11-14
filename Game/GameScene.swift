@@ -18,7 +18,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var obstacles = [SKSpriteNode]()
     var scenery = [SKSpriteNode]()
 
-    var musicPlayer: AVAudioPlayer!
     var gameOverLabel: SKLabelNode!
     var scoreLabel: SKLabelNode!
     
@@ -35,7 +34,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.view?.addGestureRecognizer(swipeRecognizerLeft)
         
         // Setup world physics
-        self.physicsWorld.gravity = CGVectorMake(0.0, -10)
+        self.physicsWorld.gravity = CGVectorMake(0.0, GameManager.sharedInstance.GRAVITY_Y)
         self.physicsWorld.contactDelegate = self
         
         startGame()
@@ -50,7 +49,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func startGame() {
-        self.backgroundColor = UIColor(red: 73/255.0, green: 148/255.0, blue: 204/255.0, alpha: 1)
+        self.backgroundColor = GameManager.sharedInstance.BACKGROUND_COLOR
 
         playLevelMusic()
 
@@ -147,7 +146,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         ground = nil
         scenery = [SKSpriteNode]()
         obstacles = [SKSpriteNode]()
-        musicPlayer = nil
         gameOverLabel = nil
         
         self.removeAllChildren()
@@ -156,7 +154,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func stopGame() {
-        musicPlayer.stop()
+        stopMusic()
         
         self.removeAllActions()
         self.background.removeAllActions()
@@ -189,14 +187,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func playLevelMusic() {
-        let levelMusicURL = NSBundle.mainBundle().URLForResource("musicMain", withExtension: "wav")
-        
-        do {
-            musicPlayer = try AVAudioPlayer(contentsOfURL: levelMusicURL!)
-            musicPlayer.numberOfLoops = -1
-            musicPlayer.prepareToPlay()
-            musicPlayer.play()
-        } catch {}
+        self.addChild(AudioManager.sharedInstance.backgroundMusic)
+    }
+    
+    func stopMusic() {
+        AudioManager.sharedInstance.backgroundMusic.removeFromParent()
     }
     
     func gameOver() {
@@ -251,17 +246,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         #else
 
             // iphone landscape
-        if isLandscape() && Utils.getPhoneSize().width <= 414 {
+        if isLandscape() && Utils.getPhoneSize().width <= GameManager.sharedInstance.IPHONE_PLUS_WIDTH {
             scoreLabel.position = CGPointMake(size.width + GameManager.sharedInstance.SCORE_X_ADJUSTMENT_POS_LANDSCAPE, size.height + GameManager.sharedInstance.SCORE_Y_ADJUSTMENT_POS_LANDSCAPE)
             self.scene!.anchorPoint = CGPointMake(0, -0.2)
             
             // iphone portrait
-        } else if Utils.getPhoneSize().width <= 414 {
+        } else if Utils.getPhoneSize().width <= GameManager.sharedInstance.IPHONE_PLUS_WIDTH {
             scoreLabel.position = CGPointMake(size.width + GameManager.sharedInstance.SCORE_X_ADJUSTMENT_POS_PORTRAIT, size.height + GameManager.sharedInstance.SCORE_Y_ADJUSTMENT_POS_PORTRAIT)
             self.scene!.anchorPoint = CGPointMake(0, 0.0)
         
             // ipad landscape
-        } else if isLandscape() && Utils.getPhoneSize().width > 414 {
+        } else if isLandscape() && Utils.getPhoneSize().width > GameManager.sharedInstance.IPHONE_PLUS_WIDTH {
                 scoreLabel.position = CGPointMake(size.width + GameManager.sharedInstance.SCORE_X_ADJUSTMENT_POS_PORTRAIT, size.height + GameManager.sharedInstance.SCORE_Y_ADJUSTMENT_POS_PORTRAIT)
                 self.scene!.anchorPoint = CGPointMake(0, 0.0)
        

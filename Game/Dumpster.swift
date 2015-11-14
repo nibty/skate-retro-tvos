@@ -43,7 +43,7 @@ class Dumpster: Obstacle {
         super.update()
         
         if self.position.x <= 158 && passedPlayer == false {
-            GameManager.sharedInstance.incrementScore()
+            GameManager.sharedInstance.score++
             passedPlayer = true
         }
     }
