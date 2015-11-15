@@ -122,6 +122,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             })
         }
         
+        // Add some fire Hydrants
+        let wait = SKAction.waitForDuration(3)
+        self.runAction(wait, completion:  {() -> Void in
+            let fireHydrant = FireHydrant()
+            self.scenery.append(fireHydrant)
+            self.addChild(fireHydrant);
+            fireHydrant.startPosition = 2400
+            fireHydrant.startMoving()
+        })
+        
         // Add clouds
         for var i = 0; i < 2; i++ {
             let cloud = Cloud()
@@ -183,7 +193,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Contact on skateable surface
         else if contact.bodyA.categoryBitMask == GameManager.sharedInstance.COLLIDER_RIDEABLE || contact.bodyB.categoryBitMask == GameManager.sharedInstance.COLLIDER_RIDEABLE  {
             GameManager.sharedInstance.isJumping = false
-            GameManager.sharedInstance.isTricking = false
+            GameManager.sharedInstance.isOllieTrick = false
+            GameManager.sharedInstance.isFlipTrick = false
         }
     }
     

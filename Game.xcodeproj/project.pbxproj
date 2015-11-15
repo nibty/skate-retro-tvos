@@ -76,6 +76,7 @@
 		01625AAC1BF4538D0069C339 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01625AAB1BF4538D0069C339 /* Launch Screen.storyboard */; };
 		016B24AB1BF5B00F0031ABE4 /* GameIphoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016B24AA1BF5B00F0031ABE4 /* GameIphoneViewController.swift */; };
 		016B24B01BF656DB0031ABE4 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016B24AF1BF656DB0031ABE4 /* AudioManager.swift */; };
+		016B24B21BF80E9F0031ABE4 /* FireHydrant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016B24B11BF80E9F0031ABE4 /* FireHydrant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -120,6 +121,7 @@
 		01625AAB1BF4538D0069C339 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		016B24AA1BF5B00F0031ABE4 /* GameIphoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameIphoneViewController.swift; sourceTree = "<group>"; };
 		016B24AF1BF656DB0031ABE4 /* AudioManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
+		016B24B11BF80E9F0031ABE4 /* FireHydrant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FireHydrant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -269,6 +271,7 @@
 				011263D31BF32CCB00FBC8D7 /* Tree.swift */,
 				011263D51BF3350300FBC8D7 /* Cloud.swift */,
 				011263C01BF2C78A00FBC8D7 /* Building.swift */,
+				016B24B11BF80E9F0031ABE4 /* FireHydrant.swift */,
 			);
 			name = Scenery;
 			sourceTree = "<group>";
@@ -436,6 +439,7 @@
 				011263B71BF2B1CC00FBC8D7 /* FarBG.swift in Sources */,
 				0157938E1BF2597C0009D1F3 /* GameViewController.swift in Sources */,
 				0112639F1BF280B700FBC8D7 /* SKNodeUpdate.swift in Sources */,
+				016B24B21BF80E9F0031ABE4 /* FireHydrant.swift in Sources */,
 				011263D01BF2E2BE00FBC8D7 /* DumpsterTop.swift in Sources */,
 				011263AD1BF2A7FF00FBC8D7 /* Ground.swift in Sources */,
 				011263C11BF2C78A00FBC8D7 /* Building.swift in Sources */,

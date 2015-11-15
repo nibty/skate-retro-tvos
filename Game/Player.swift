@@ -27,7 +27,8 @@ class Player: SKSpriteNode {
             
             if floor((self.physicsBody?.velocity.dy)!) == 0 {
                 GameManager.sharedInstance.isJumping = false
-                GameManager.sharedInstance.isTricking = false
+                GameManager.sharedInstance.isOllieTrick = false
+                GameManager.sharedInstance.isFlipTrick = false
             }
         }
     }
@@ -80,23 +81,23 @@ class Player: SKSpriteNode {
     }
     
     func ollie() {
-        if GameManager.sharedInstance.isJumping && !GameManager.sharedInstance.gameOver && !GameManager.sharedInstance.isTricking {
-            GameManager.sharedInstance.isTricking = true;
+        if GameManager.sharedInstance.isJumping && !GameManager.sharedInstance.gameOver && !GameManager.sharedInstance.isOllieTrick {
+            GameManager.sharedInstance.isOllieTrick = true;
             playOllieAnim()
             
             self.runAction(AudioManager.sharedInstance.jumpSoundAction)
-            self.physicsBody?.applyImpulse(CGVectorMake(0.0, 40))
+            self.physicsBody?.applyImpulse(CGVectorMake(0.0, 20))
             GameManager.sharedInstance.score++
         }
     }
     
     func flip() {
-        if GameManager.sharedInstance.isJumping && !GameManager.sharedInstance.gameOver && !GameManager.sharedInstance.isTricking {
-            GameManager.sharedInstance.isTricking = true;
+        if GameManager.sharedInstance.isJumping && !GameManager.sharedInstance.gameOver && !GameManager.sharedInstance.isFlipTrick {
+            GameManager.sharedInstance.isFlipTrick = true;
             playFlipAnim()
             
             self.runAction(AudioManager.sharedInstance.jumpSoundAction)
-            self.physicsBody?.applyImpulse(CGVectorMake(0.0, 40))
+            self.physicsBody?.applyImpulse(CGVectorMake(0.0, 20))
             GameManager.sharedInstance.score++
         }
     }
