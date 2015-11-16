@@ -146,7 +146,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func startGame() {
         self.backgroundColor = GameManager.sharedInstance.BACKGROUND_COLOR
 
-        playLevelMusic()
+        AudioManager.sharedInstance.playMusic(self)
         
         // Add Player
         player = Player()
@@ -210,7 +210,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func stopGame() {
-        stopMusic()
+        AudioManager.sharedInstance.stopMusic()
         
         self.removeAllActions()
         self.background.removeAllActions()
@@ -242,14 +242,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             GameManager.sharedInstance.isOllieTrick = false
             GameManager.sharedInstance.isFlipTrick = false
         }
-    }
-    
-    func playLevelMusic() {
-        self.addChild(AudioManager.sharedInstance.backgroundMusic)
-    }
-    
-    func stopMusic() {
-        AudioManager.sharedInstance.backgroundMusic.removeFromParent()
     }
     
     func gameOver() {

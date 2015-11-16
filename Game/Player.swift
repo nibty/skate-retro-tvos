@@ -76,7 +76,7 @@ class Player: SKSpriteNode {
             GameManager.sharedInstance.isJumping = true
             
             self.physicsBody?.applyImpulse(CGVectorMake(0.0, 70.0))
-            self.runAction(AudioManager.sharedInstance.jumpSoundAction)
+            AudioManager.sharedInstance.playJumpSoundEffect(self)
         }
     }
     
@@ -85,7 +85,7 @@ class Player: SKSpriteNode {
             GameManager.sharedInstance.isOllieTrick = true;
             playOllieAnim()
             
-            self.runAction(AudioManager.sharedInstance.jumpSoundAction)
+            AudioManager.sharedInstance.playJumpSoundEffect(self)
             self.physicsBody?.applyImpulse(CGVectorMake(0.0, 20))
             GameManager.sharedInstance.score++
         }
@@ -96,7 +96,7 @@ class Player: SKSpriteNode {
             GameManager.sharedInstance.isFlipTrick = true;
             playFlipAnim()
             
-            self.runAction(AudioManager.sharedInstance.jumpSoundAction)
+            AudioManager.sharedInstance.playJumpSoundEffect(self)
             self.physicsBody?.applyImpulse(CGVectorMake(0.0, 20))
             GameManager.sharedInstance.score++
         }
@@ -118,7 +118,7 @@ class Player: SKSpriteNode {
         if !GameManager.sharedInstance.gameOver {
             self.removeAllActions()
             
-            self.runAction(AudioManager.sharedInstance.gameOverSoundAction)
+            AudioManager.sharedInstance.playGameOverSoundEffect(self)
     
             self.runAction(SKAction.animateWithTextures(charCrashFrames, timePerFrame: 0.05))
             self.physicsBody?.applyImpulse(CGVectorMake(-20, 5))

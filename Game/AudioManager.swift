@@ -9,13 +9,37 @@
 import SpriteKit
 
 class AudioManager {
-    
-    static let sharedInstance = AudioManager()
 
+    static let sharedInstance = AudioManager()
+    
+    var muteAudio = false
+    
+    // Music
+    let music = SKAudioNode(fileNamed: "musicMain.wav")
+    
     // Sound effects
     let jumpSoundAction = SKAction.playSoundFileNamed("sfxOllie.wav", waitForCompletion: false)
     let gameOverSoundAction = SKAction.playSoundFileNamed("sfxGameOver.wav", waitForCompletion: false)
+
+    func playMusic(scene: GameScene) {
+        if !muteAudio {
+            scene.addChild(music)
+        }
+    }
     
-    // Music
-    let backgroundMusic = SKAudioNode(fileNamed: "musicMain.wav")
+    func stopMusic() {
+        music.removeFromParent()
+    }
+    
+    func playJumpSoundEffect(node: SKNode) {
+        if !muteAudio {
+            node.runAction(jumpSoundAction)
+        }
+    }
+    
+    func playGameOverSoundEffect(node: SKNode) {
+        if !muteAudio {
+            node.runAction(gameOverSoundAction)
+        }
+    }
 }
