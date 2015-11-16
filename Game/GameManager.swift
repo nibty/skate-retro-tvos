@@ -52,7 +52,6 @@ class GameManager {
     let FLOOR_POSITION_Y: CGFloat = 125
     
     // Movables setup
-    var dumpsterXStartPosition:CGFloat = 0
     var movingSpeed:CGFloat = -8.5
     
     // Misc
