@@ -29,9 +29,6 @@ class GameManager {
     let CHAR_X_POSITION: CGFloat = 158
     let CHAR_Y_POSITION: CGFloat = 175
     let PLAYER_Z_POSITION: CGFloat = 10
-    var isJumping = false
-    var isOllieTrick = false
-    var isFlipTrick = false
 
     // World setup
     let GRAVITY_Y: CGFloat = -10

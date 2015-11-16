@@ -51,10 +51,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         for child in self.children {
             child.update()
         }
-    }
+    }   
 
     func addObsticle() {
-        print("addObsticle")
         let randomIndex = Int(arc4random_uniform(UInt32(self.obstacleTypes.count)))
         let obsticleType = self.obstacleTypes[randomIndex]
         let obsticle = obsticleType.init()
@@ -210,14 +209,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // Crash detected. End game
         if contact.bodyA.categoryBitMask == GameManager.sharedInstance.COLLIDER_OBSTACLE || contact.bodyB.categoryBitMask == GameManager.sharedInstance.COLLIDER_OBSTACLE {
+            player.physicsBody?.applyImpulse(CGVectorMake(-20, 5))
             stopGame()
         }
             
         // Contact on skateable surface
         else if contact.bodyA.categoryBitMask == GameManager.sharedInstance.COLLIDER_RIDEABLE || contact.bodyB.categoryBitMask == GameManager.sharedInstance.COLLIDER_RIDEABLE  {
-            GameManager.sharedInstance.isJumping = false
-            GameManager.sharedInstance.isOllieTrick = false
-            GameManager.sharedInstance.isFlipTrick = false
+            player.isJumping = false
+            
+            // Crash detected. End game
+            if (player.isOllieTrick || player.isFlipTrick) {
+                player.isOllieTrick = false
+                player.isFlipTrick = false
+                
+                stopGame()
+            }
         }
     }
     

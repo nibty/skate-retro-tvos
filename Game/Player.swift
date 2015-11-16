@@ -16,19 +16,22 @@ class Player: SKSpriteNode {
     var charOllieFrames = [SKTexture]()
     var charFlipFrames = [SKTexture]()
     
-
+    var isJumping = false
+    var isOllieTrick = false
+    var isFlipTrick = false
+    
     convenience init() {
         self.init(imageNamed: "push0")
         createCharacter()
     }
     
     override func update() {
-        if GameManager.sharedInstance.isJumping {
+        if isJumping {
             
             if floor((self.physicsBody?.velocity.dy)!) == 0 {
-                GameManager.sharedInstance.isJumping = false
-                GameManager.sharedInstance.isOllieTrick = false
-                GameManager.sharedInstance.isFlipTrick = false
+                isJumping = false
+                isOllieTrick = false
+                isFlipTrick = false
             }
         }
     }
@@ -52,12 +55,7 @@ class Player: SKSpriteNode {
             charFlipFrames.append(SKTexture(imageNamed: "flip\(x)"))
         }
         
-        #if os(tvOS)
-            self.position = CGPointMake(GameManager.sharedInstance.CHAR_X_POSITION, GameManager.sharedInstance.CHAR_Y_POSITION)
-        #else
-            // move player to the left on iphones
-            self.position = CGPointMake(GameManager.sharedInstance.CHAR_X_POSITION - 100, GameManager.sharedInstance.CHAR_Y_POSITION)
-        #endif
+        self.position = CGPointMake(GameManager.sharedInstance.CHAR_X_POSITION, GameManager.sharedInstance.CHAR_Y_POSITION)
 
         self.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(self.size.width - 50, self.size.height - 20))
         self.physicsBody?.restitution = 0
@@ -72,8 +70,8 @@ class Player: SKSpriteNode {
     }
     
     func jump() {
-        if !GameManager.sharedInstance.isJumping && !GameManager.sharedInstance.gameOver {
-            GameManager.sharedInstance.isJumping = true
+        if !isJumping && !GameManager.sharedInstance.gameOver {
+            isJumping = true
             
             self.physicsBody?.applyImpulse(CGVectorMake(0.0, 70.0))
             AudioManager.sharedInstance.playJumpSoundEffect(self)
@@ -81,8 +79,8 @@ class Player: SKSpriteNode {
     }
     
     func ollie() {
-        if GameManager.sharedInstance.isJumping && !GameManager.sharedInstance.gameOver && !GameManager.sharedInstance.isOllieTrick {
-            GameManager.sharedInstance.isOllieTrick = true;
+        if isJumping && !GameManager.sharedInstance.gameOver && !isOllieTrick {
+            isOllieTrick = true;
             playOllieAnim()
             
             AudioManager.sharedInstance.playJumpSoundEffect(self)
@@ -92,8 +90,8 @@ class Player: SKSpriteNode {
     }
     
     func flip() {
-        if GameManager.sharedInstance.isJumping && !GameManager.sharedInstance.gameOver && !GameManager.sharedInstance.isFlipTrick {
-            GameManager.sharedInstance.isFlipTrick = true;
+        if isJumping && !GameManager.sharedInstance.gameOver && !isFlipTrick {
+            isFlipTrick = true;
             playFlipAnim()
             
             AudioManager.sharedInstance.playJumpSoundEffect(self)
@@ -109,6 +107,8 @@ class Player: SKSpriteNode {
             self.runAction(SKAction.animateWithTextures(charFlipFrames, timePerFrame: 0.05))
             let wait = SKAction.waitForDuration(0.55)
             self.runAction(wait, completion:  {() -> Void in
+                self.isOllieTrick = false
+                self.isFlipTrick = false
                 self.playPushAnim()
             })
         }
@@ -121,8 +121,6 @@ class Player: SKSpriteNode {
             AudioManager.sharedInstance.playGameOverSoundEffect(self)
     
             self.runAction(SKAction.animateWithTextures(charCrashFrames, timePerFrame: 0.05))
-            self.physicsBody?.applyImpulse(CGVectorMake(-20, 5))
-
         }
     }
     
@@ -138,6 +136,8 @@ class Player: SKSpriteNode {
         self.runAction(SKAction.animateWithTextures(charOllieFrames, timePerFrame: 0.05))
         let wait = SKAction.waitForDuration(0.6)
         self.runAction(wait, completion:  {() -> Void in
+            self.isOllieTrick = false
+            self.isFlipTrick = false
             self.playPushAnim()
         })
     }
