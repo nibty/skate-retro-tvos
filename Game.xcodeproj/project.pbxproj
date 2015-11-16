@@ -79,6 +79,11 @@
 		016B24B41BF8128A0031ABE4 /* Ledge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016B24B31BF8128A0031ABE4 /* Ledge.swift */; };
 		016B24B61BF812BF0031ABE4 /* Rail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016B24B51BF812BF0031ABE4 /* Rail.swift */; };
 		019968E11BF9590B00039E54 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019968E01BF9590B00039E54 /* Random.swift */; };
+		019968E31BF98DAC00039E54 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016B24AF1BF656DB0031ABE4 /* AudioManager.swift */; };
+		019968E41BF98DEF00039E54 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019968E01BF9590B00039E54 /* Random.swift */; };
+		019968E51BF98E4900039E54 /* Ledge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016B24B31BF8128A0031ABE4 /* Ledge.swift */; };
+		019968E61BF98E4C00039E54 /* Rail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016B24B51BF812BF0031ABE4 /* Rail.swift */; };
+		019968E71BF98E5A00039E54 /* FireHydrant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016B24B11BF80E9F0031ABE4 /* FireHydrant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -420,6 +425,7 @@
 				0112642D1BF3FB6800FBC8D7 /* Sidewalk.swift in Sources */,
 				0112642E1BF3FB6800FBC8D7 /* GameManager.swift in Sources */,
 				0112642F1BF3FB6800FBC8D7 /* FarBG.swift in Sources */,
+				019968E51BF98E4900039E54 /* Ledge.swift in Sources */,
 				011264301BF3FB6800FBC8D7 /* GameViewController.swift in Sources */,
 				011264311BF3FB6800FBC8D7 /* SKNodeUpdate.swift in Sources */,
 				011264321BF3FB6800FBC8D7 /* TopCollider.swift in Sources */,
@@ -430,12 +436,16 @@
 				011264371BF3FB6800FBC8D7 /* Background.swift in Sources */,
 				011264381BF3FB6800FBC8D7 /* Cloud.swift in Sources */,
 				011264391BF3FB6800FBC8D7 /* FrontBG.swift in Sources */,
+				019968E71BF98E5A00039E54 /* FireHydrant.swift in Sources */,
 				0112643A1BF3FB6800FBC8D7 /* Movable.swift in Sources */,
 				0112643B1BF3FB6800FBC8D7 /* Player.swift in Sources */,
 				0112643C1BF3FB6800FBC8D7 /* Obstacle.swift in Sources */,
+				019968E31BF98DAC00039E54 /* AudioManager.swift in Sources */,
 				0112643D1BF3FB6800FBC8D7 /* Tree.swift in Sources */,
 				0112643E1BF3FB6800FBC8D7 /* Utils.swift in Sources */,
 				0112643F1BF3FB6800FBC8D7 /* AppDelegate.swift in Sources */,
+				019968E41BF98DEF00039E54 /* Random.swift in Sources */,
+				019968E61BF98E4C00039E54 /* Rail.swift in Sources */,
 				011264401BF3FB6800FBC8D7 /* Backgrounds.swift in Sources */,
 				011264411BF3FB6800FBC8D7 /* Grounds.swift in Sources */,
 			);

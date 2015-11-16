@@ -55,7 +55,7 @@ class GameManager {
     var movingSpeed:CGFloat = -8.5
     
     // Misc
-    let IPHONE_PLUS_WIDTH = 414
+    let IPHONE_PLUS_WIDTH: CGFloat = 414
     
     var levelLoop = 0
     var gameOver = false
