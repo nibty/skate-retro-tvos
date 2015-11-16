@@ -13,12 +13,8 @@ class FireHydrant: Movable {
         self.init(imageNamed: "fire_hydrant")
         self.anchorPoint = CGPointMake(0.5, 0)
         self.yPos = 165
-        self.zPosition = 6
+        self.zPosition = 7
     }
     
-    override func didExceedBounds() {
-        super.didExceedBounds()
-        
-        self.texture = SKTexture(imageNamed: "fire_hydrant")
-    }
+    override func didExceedBounds() {}
 }

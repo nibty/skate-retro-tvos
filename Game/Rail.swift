@@ -1,17 +1,17 @@
 //
-//  Dumpster.swift
+//  Rail.swift
 //  Game
 //
-//  Created by Nicholas Pettas on 11/10/15.
+//  Created by Nicholas Pettas on 11/14/15.
 //  Copyright © 2015 Nicholas Pettas. All rights reserved.
 //
 
 import SpriteKit
 
-class Dumpster: Obstacle {
+class Rail: Obstacle {
     
     convenience init() {
-        self.init(imageNamed: "dumpster")
+        self.init(imageNamed: "rail")
         self.yPos = 150
         
         let topCollider = TopCollider(size: self.size)
@@ -19,13 +19,13 @@ class Dumpster: Obstacle {
     }
     
     override func initPhysics() {
-        let frontCollider = SKPhysicsBody(rectangleOfSize: CGSizeMake(self.size.width - 10, self.size.height - 10),  center: CGPointMake(0, -10))
-
+        let frontCollider = SKPhysicsBody(rectangleOfSize: CGSizeMake(self.size.width - 5, self.size.height),  center: CGPointMake(0, -5))
+        
         frontCollider.categoryBitMask = GameManager.sharedInstance.COLLIDER_OBSTACLE
         frontCollider.contactTestBitMask = GameManager.sharedInstance.COLLIDER_PLAYER
         
         self.physicsBody = frontCollider
-        
+    
         super.initPhysics()
     }
 }

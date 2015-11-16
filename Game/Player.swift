@@ -121,6 +121,8 @@ class Player: SKSpriteNode {
             self.runAction(AudioManager.sharedInstance.gameOverSoundAction)
     
             self.runAction(SKAction.animateWithTextures(charCrashFrames, timePerFrame: 0.05))
+            self.physicsBody?.applyImpulse(CGVectorMake(-20, 5))
+
         }
     }
     

@@ -10,7 +10,6 @@ import SpriteKit
 
 class Movable: SKSpriteNode {
     
-    var passedPlayer = false
     var resetPosition:CGFloat = -900
     var startPosition:CGFloat = 1800
     var movingSpeed = GameManager.sharedInstance.movingSpeed
@@ -34,5 +33,7 @@ class Movable: SKSpriteNode {
     
     func didExceedBounds() {
         self.position = CGPointMake(self.startPosition, self.position.y)
+        
+        GameManager.sharedInstance.levelLoop++
     }
 }

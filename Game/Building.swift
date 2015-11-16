@@ -16,9 +16,5 @@ class Building: Movable {
         self.zPosition = 5
     }
     
-    override func didExceedBounds() {
-        super.didExceedBounds()
-        
-    self.texture = SKTexture(imageNamed: "building\(arc4random_uniform(8))")
-    }
+    override func didExceedBounds() {}
 }

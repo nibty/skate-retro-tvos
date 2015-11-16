@@ -17,9 +17,5 @@ class Cloud: Movable {
         self.alpha = 0.7
     }
     
-    override func didExceedBounds() {
-        super.didExceedBounds()
-        
-        self.texture = SKTexture(imageNamed: "cloud\(arc4random_uniform(2))")
-    }
+    override func didExceedBounds() {}
 }

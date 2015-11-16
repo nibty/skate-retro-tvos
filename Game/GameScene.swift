@@ -15,6 +15,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var background:Backgrounds!
     var ground:Grounds!
     
+    var obstacleTypes: [Obstacle.Type] = [Dumpster.self, Ledge.self, Rail.self]
     var obstacles = [SKSpriteNode]()
     var scenery = [SKSpriteNode]()
 
@@ -29,6 +30,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let swipeRecognizerLeft = UISwipeGestureRecognizer(target: self, action: "swipedLeft:")
         swipeRecognizerRight.direction = .Right
         swipeRecognizerLeft.direction = .Left
+        #if TARGET_OS_TV
+            tap.allowedPressTypes = [NSNumber(integer: UIPressType.Select.rawValue)]
+        #endif
+        
         self.view?.addGestureRecognizer(tap)
         self.view?.addGestureRecognizer(swipeRecognizerRight)
         self.view?.addGestureRecognizer(swipeRecognizerLeft)
@@ -47,29 +52,101 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             child.update()
         }
     }
+
+    func addObsticleAtRandomTimes() {
+        let difficulty = NSTimeInterval(Float.random(min: 0.5, max: 2.8))
+        
+        let waitAction = SKAction.waitForDuration(difficulty)
+        let addAction = SKAction.runBlock { () -> Void in
+            let randomIndex = Int(arc4random_uniform(UInt32(self.obstacleTypes.count)))
+            let obsticleType = self.obstacleTypes[randomIndex]
+            let obsticle = obsticleType.init()
+            self.addChild(obsticle)
+            self.obstacles.append(obsticle)
+            obsticle.startMoving()        }
+        let actionMoveDone = SKAction.removeFromParent()
+        
+        runAction(SKAction.sequence([addAction, waitAction, actionMoveDone]), completion: { () -> Void in
+            self.addObsticleAtRandomTimes()
+        })
+    }
+    
+    func addBuildingsAtRandomTimes() {
+        let difficulty = NSTimeInterval(Float.random(min: 1.5, max: 2.5))
+        
+        let waitAction = SKAction.waitForDuration(difficulty)
+        let addAction = SKAction.runBlock { () -> Void in
+            let building = Building()
+            self.scenery.append(building)
+            self.addChild(building);
+            building.startMoving()
+        }
+        let actionMoveDone = SKAction.removeFromParent()
+        
+        runAction(SKAction.sequence([addAction, waitAction, actionMoveDone]), completion: { () -> Void in
+            self.addBuildingsAtRandomTimes()
+        })
+    }
+    
+    func addTreesAtRandomTimes() {
+        let difficulty = NSTimeInterval(Float.random(min: 2, max: 3))
+        
+        let waitAction = SKAction.waitForDuration(difficulty)
+        let addAction = SKAction.runBlock { () -> Void in
+            let tree = Tree()
+            self.scenery.append(tree)
+            self.addChild(tree);
+            tree.startPosition = 2100
+            tree.startMoving()
+        }
+        let actionMoveDone = SKAction.removeFromParent()
+        
+        runAction(SKAction.sequence([addAction, waitAction, actionMoveDone]), completion: { () -> Void in
+            self.addTreesAtRandomTimes()
+        })
+    }
+    
+    func addFireHydrantsAtRandomTimes() {
+        let difficulty = NSTimeInterval(Float.random(min: 4, max: 7))
+        
+        let waitAction = SKAction.waitForDuration(difficulty)
+        let addAction = SKAction.runBlock { () -> Void in
+            let fireHydrant = FireHydrant()
+            self.scenery.append(fireHydrant)
+            self.addChild(fireHydrant);
+            fireHydrant.startPosition = 2400
+            fireHydrant.startMoving()
+        }
+        let actionMoveDone = SKAction.removeFromParent()
+        
+        runAction(SKAction.sequence([addAction, waitAction, actionMoveDone]), completion: { () -> Void in
+            self.addFireHydrantsAtRandomTimes()
+        })
+    }
+    
+    func addCloudsAtRandomTimes() {
+        let difficulty = NSTimeInterval(Float.random(min: 60, max: 120))
+        
+        let waitAction = SKAction.waitForDuration(difficulty)
+        let addAction = SKAction.runBlock { () -> Void in
+            let cloud = Cloud()
+            cloud.movingSpeed = -0.2
+            cloud.startPosition = 800
+            self.scenery.append(cloud)
+            self.addChild(cloud);
+            cloud.startMoving()
+        }
+        let actionMoveDone = SKAction.removeFromParent()
+        
+        runAction(SKAction.sequence([addAction, waitAction, actionMoveDone]), completion: { () -> Void in
+            self.addCloudsAtRandomTimes()
+        })
+    }
     
     func startGame() {
         self.backgroundColor = GameManager.sharedInstance.BACKGROUND_COLOR
 
         playLevelMusic()
-
-        // Add obsticals
-        for var i = 1; i < 4; i++ {
-            let wait = SKAction.waitForDuration(1.8 * Double(i))
-            self.runAction(wait, completion:  {() -> Void in
-
-            let dumpster = Dumpster()
-            let dumbsterTop = DumbsterTop()
-
-            self.addChild(dumpster)
-            self.addChild(dumbsterTop)
-            dumbsterTop.position = CGPointMake(dumpster.position.x, dumpster.position.y + 50)
-            self.obstacles.append(dumbsterTop)
-            self.obstacles.append(dumpster)
-            dumpster.startMoving()
-            dumbsterTop.startMoving()
-            })
-        }
         
         // Add Player
         player = Player()
@@ -100,51 +177,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel.text = "0"
         self.addChild(scoreLabel)
         
-        // Add buildings
-        for var i = 0; i < 3; i++ {
-            let wait = SKAction.waitForDuration(2.0 * Double(i))
-            self.runAction(wait, completion:  {() -> Void in
-                let building = Building()
-                self.scenery.append(building)
-                self.addChild(building);
-                building.startMoving()
-            })
-        }
+        // Add obsticles
+        addObsticleAtRandomTimes()
         
-        // Add some trees
-        for var i = 1; i < 3; i++ {
-            let wait = SKAction.waitForDuration(2.3 * Double(i))
-            self.runAction(wait, completion:  {() -> Void in
-                let tree = Tree()
-                self.scenery.append(tree)
-                self.addChild(tree);
-                tree.startMoving()
-            })
-        }
+        // Add buildings
+        addBuildingsAtRandomTimes()
+
+        // Trees
+        addTreesAtRandomTimes()
         
         // Add some fire Hydrants
-        let wait = SKAction.waitForDuration(3)
-        self.runAction(wait, completion:  {() -> Void in
-            let fireHydrant = FireHydrant()
-            self.scenery.append(fireHydrant)
-            self.addChild(fireHydrant);
-            fireHydrant.startPosition = 2400
-            fireHydrant.startMoving()
-        })
+        addFireHydrantsAtRandomTimes()
         
-        // Add clouds
-        for var i = 0; i < 2; i++ {
-            let cloud = Cloud()
-            cloud.movingSpeed = -0.2
-            if (i == 1) {
-                cloud.startPosition = 100
-            } else {
-                cloud.startPosition = 800
-            }
-            self.scenery.append(cloud)
-            self.addChild(cloud);
-            cloud.startMoving()
-        }
+        // Add come clouds
+        addCloudsAtRandomTimes()
     }
     
     func restartGame() {

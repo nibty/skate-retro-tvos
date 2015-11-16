@@ -16,9 +16,5 @@ class Tree: Movable {
         self.zPosition = 6
     }
     
-    override func didExceedBounds() {
-        super.didExceedBounds()
-        
-        self.texture = SKTexture(imageNamed: "tree\(arc4random_uniform(2))")
-    }
+    override func didExceedBounds() {}
 }

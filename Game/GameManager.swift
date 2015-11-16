@@ -58,6 +58,7 @@ class GameManager {
     // Misc
     let IPHONE_PLUS_WIDTH = 414
     
+    var levelLoop = 0
     var gameOver = false
-    var score = 0
+    var score = 0    
 }
