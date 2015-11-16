@@ -1,5 +1,5 @@
 # skate-retro-tvos
-SkateBoard tvOS game
+A retro Skateboard tvOS and iOS game built with SpritKit and Swift
 
 A very simple little retro skateboarding game. This is my first attempt at an iOS game using the SpriteKit engine. This game was built for the appleTV and has since been ported to all iOS products. The games is based on Mark Price’s Apple TV Udemy tutorial (https://www.udemy.com/apple-tv). All graphics were also provided by him.
 
