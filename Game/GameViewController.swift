@@ -10,14 +10,11 @@ import UIKit
 import SpriteKit
 
 class GameViewController: UIViewController {
-
-    var scene: GameScene!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         if let scene = GameScene(fileNamed: "GameScene") {
-            self.scene = scene
             
             // Configure the view.
             let skView = self.view as! SKView
@@ -30,26 +27,26 @@ class GameViewController: UIViewController {
             
             #if os(tvOS)
                 // Set up for apple tv
-                self.scene.scaleMode = .AspectFit
-                self.scene.anchorPoint = CGPointMake(0, -0.1)
+                scene.scaleMode = .AspectFit
+                scene.anchorPoint = CGPointMake(0, -0.1)
                 
             #else
                 // setup display for iphones and ipads
-                self.scene.scaleMode = .ResizeFill
+                scene.scaleMode = .ResizeFill
                 
                 if Utils.getPhoneSize().width <= 414 {
                     
                     if Utils.isLandscape() {
-                        self.scene.anchorPoint = CGPointMake(0, -0.2)
+                        scene.anchorPoint = CGPointMake(0, -0.2)
                     }
                 } else {
                     if Utils.isLandscape() {
-                        self.scene.anchorPoint = CGPointMake(0, 0.0)
+                        scene.anchorPoint = CGPointMake(0, 0.0)
                     }
                 }
             #endif
             
-            skView.presentScene(self.scene)
+            skView.presentScene(scene)
         }
     }
 
