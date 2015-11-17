@@ -50,11 +50,14 @@
 		0112643F1BF3FB6800FBC8D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015793871BF2597C0009D1F3 /* AppDelegate.swift */; };
 		011264401BF3FB6800FBC8D7 /* Backgrounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011263B81BF2B59D00FBC8D7 /* Backgrounds.swift */; };
 		011264411BF3FB6800FBC8D7 /* Grounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011263BA1BF2B88900FBC8D7 /* Grounds.swift */; };
-		0112644B1BF3FB6800FBC8D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 015793941BF2597C0009D1F3 /* Assets.xcassets */; };
 		0112644D1BF3FB6800FBC8D7 /* Game.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0157938F1BF2597C0009D1F3 /* Game.xcassets */; };
 		011264551BF402CE00FBC8D7 /* Main-Iphone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 011264531BF4013400FBC8D7 /* Main-Iphone.storyboard */; };
 		011EB6391BF408010005F457 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 015793891BF2597C0009D1F3 /* GameScene.sks */; };
 		011EB63A1BF4080C0005F457 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 015793891BF2597C0009D1F3 /* GameScene.sks */; };
+		01329FFC1BFBA0CA006B6619 /* PressStart2P-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 01329FFB1BFBA0CA006B6619 /* PressStart2P-Regular.ttf */; };
+		01329FFD1BFBA0CA006B6619 /* PressStart2P-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 01329FFB1BFBA0CA006B6619 /* PressStart2P-Regular.ttf */; };
+		01329FFE1BFBA622006B6619 /* iphone.plist in Resources */ = {isa = PBXBuildFile; fileRef = 011264521BF3FB6800FBC8D7 /* iphone.plist */; };
+		01329FFF1BFBA625006B6619 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 015793961BF2597C0009D1F3 /* Info.plist */; };
 		014352451BF4552A0089BD2C /* musicMain.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0143523F1BF4552A0089BD2C /* musicMain.wav */; };
 		014352461BF4552A0089BD2C /* musicMain.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0143523F1BF4552A0089BD2C /* musicMain.wav */; };
 		014352471BF4552A0089BD2C /* sfxButtonPress.wav in Resources */ = {isa = PBXBuildFile; fileRef = 014352401BF4552A0089BD2C /* sfxButtonPress.wav */; };
@@ -110,6 +113,7 @@
 		011264511BF3FB6800FBC8D7 /* RetroSkate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RetroSkate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		011264521BF3FB6800FBC8D7 /* iphone.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = iphone.plist; path = /Users/nick/Desktop/Game/iphone.plist; sourceTree = "<absolute>"; };
 		011264531BF4013400FBC8D7 /* Main-Iphone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Main-Iphone.storyboard"; sourceTree = "<group>"; };
+		01329FFB1BFBA0CA006B6619 /* PressStart2P-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PressStart2P-Regular.ttf"; sourceTree = "<group>"; };
 		0143523F1BF4552A0089BD2C /* musicMain.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = musicMain.wav; sourceTree = "<group>"; };
 		014352401BF4552A0089BD2C /* sfxButtonPress.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sfxButtonPress.wav; sourceTree = "<group>"; };
 		014352411BF4552A0089BD2C /* sfxCrash.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sfxCrash.wav; sourceTree = "<group>"; };
@@ -229,6 +233,16 @@
 			name = Audio;
 			sourceTree = "<group>";
 		};
+		01329FFA1BFBA0B1006B6619 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				01329FFB1BFBA0CA006B6619 /* PressStart2P-Regular.ttf */,
+				0157938F1BF2597C0009D1F3 /* Game.xcassets */,
+				015793941BF2597C0009D1F3 /* Assets.xcassets */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		0157937B1BF2597C0009D1F3 = {
 			isa = PBXGroup;
 			children = (
@@ -249,6 +263,7 @@
 		015793861BF2597C0009D1F3 /* RetroSkate */ = {
 			isa = PBXGroup;
 			children = (
+				01329FFA1BFBA0B1006B6619 /* Resources */,
 				016B24AC1BF5B45D0031ABE4 /* SupportFiles */,
 				011263C21BF2DE9700FBC8D7 /* Audio */,
 				011263A71BF2931D00FBC8D7 /* Services */,
@@ -260,8 +275,6 @@
 				015793911BF2597C0009D1F3 /* Main.storyboard */,
 				011264531BF4013400FBC8D7 /* Main-Iphone.storyboard */,
 				01625AAB1BF4538D0069C339 /* Launch Screen.storyboard */,
-				0157938F1BF2597C0009D1F3 /* Game.xcassets */,
-				015793941BF2597C0009D1F3 /* Assets.xcassets */,
 			);
 			path = RetroSkate;
 			sourceTree = "<group>";
@@ -382,10 +395,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01329FFD1BFBA0CA006B6619 /* PressStart2P-Regular.ttf in Resources */,
+				01329FFE1BFBA622006B6619 /* iphone.plist in Resources */,
 				0143524C1BF4552A0089BD2C /* sfxGameOver.wav in Resources */,
 				014352501BF4552A0089BD2C /* sfxSkateOrDie.wav in Resources */,
 				011EB63A1BF4080C0005F457 /* GameScene.sks in Resources */,
-				0112644B1BF3FB6800FBC8D7 /* Assets.xcassets in Resources */,
 				0143524A1BF4552A0089BD2C /* sfxCrash.wav in Resources */,
 				011264551BF402CE00FBC8D7 /* Main-Iphone.storyboard in Resources */,
 				014352481BF4552A0089BD2C /* sfxButtonPress.wav in Resources */,
@@ -408,8 +422,10 @@
 				011EB6391BF408010005F457 /* GameScene.sks in Resources */,
 				0143524D1BF4552A0089BD2C /* sfxOllie.wav in Resources */,
 				015793951BF2597C0009D1F3 /* Assets.xcassets in Resources */,
+				01329FFF1BFBA625006B6619 /* Info.plist in Resources */,
 				014352451BF4552A0089BD2C /* musicMain.wav in Resources */,
 				015793901BF2597C0009D1F3 /* Game.xcassets in Resources */,
+				01329FFC1BFBA0CA006B6619 /* PressStart2P-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,7 +519,6 @@
 		0112644F1BF3FB6800FBC8D7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "$(SRCROOT)/../../Desktop/Game/iphone.plist";
@@ -520,7 +535,6 @@
 		011264501BF3FB6800FBC8D7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "$(SRCROOT)/../../Desktop/Game/iphone.plist";

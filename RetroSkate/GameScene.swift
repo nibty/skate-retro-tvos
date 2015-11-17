@@ -145,7 +145,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(ground)
         
         // Add gameover label
-        gameOverLabel = SKLabelNode(fontNamed: "San Francisco")
+        gameOverLabel = SKLabelNode(fontNamed: "PressStart2P-Regular")
         gameOverLabel.fontSize = 40
         gameOverLabel.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))
         gameOverLabel.zPosition = 9
@@ -313,17 +313,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func setupScore() {
 
         // Add score label
-        currentScoreLabel = SKLabelNode(fontNamed: "San Francisco")
-        currentScoreLabel.fontSize = 30
+        currentScoreLabel = SKLabelNode(fontNamed: "PressStart2P-Regular")
         currentScoreLabel.zPosition = 9
         currentScoreLabel.horizontalAlignmentMode = .Right
         self.addChild(currentScoreLabel)
         
-        topScoreLabel = SKLabelNode(fontNamed: "San Francisco")
-        topScoreLabel.fontSize = 30
+        topScoreLabel = SKLabelNode(fontNamed: "PressStart2P-Regular")
         topScoreLabel.zPosition = 9
         topScoreLabel.horizontalAlignmentMode = .Right
         self.addChild(topScoreLabel)
+        
+        #if os(tv)
+            topScoreLabel.fontSize = 32
+            currentScoreLabel.fontSize = 32
+        #else
+            topScoreLabel.fontSize = 24
+            currentScoreLabel.fontSize = 24
+        #endif
+        
         placeScoreLabel()
         
         let userDefaults : NSUserDefaults = NSUserDefaults.standardUserDefaults()
