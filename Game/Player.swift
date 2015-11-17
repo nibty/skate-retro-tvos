@@ -73,7 +73,7 @@ class Player: SKSpriteNode {
         if !isJumping && !GameManager.sharedInstance.gameOver {
             isJumping = true
             
-            self.physicsBody?.applyImpulse(CGVectorMake(0.0, 70.0))
+            self.physicsBody?.applyImpulse(CGVectorMake(0.0, 55))
             AudioManager.sharedInstance.playJumpSoundEffect(self)
         }
     }
@@ -84,7 +84,7 @@ class Player: SKSpriteNode {
             playOllieAnim()
             
             AudioManager.sharedInstance.playJumpSoundEffect(self)
-            self.physicsBody?.applyImpulse(CGVectorMake(0.0, 20))
+            self.physicsBody?.applyImpulse(CGVectorMake(0.0, 25))
             GameManager.sharedInstance.score++
         }
     }
@@ -95,7 +95,7 @@ class Player: SKSpriteNode {
             playFlipAnim()
             
             AudioManager.sharedInstance.playJumpSoundEffect(self)
-            self.physicsBody?.applyImpulse(CGVectorMake(0.0, 20))
+            self.physicsBody?.applyImpulse(CGVectorMake(0.0, 25))
             GameManager.sharedInstance.score++
         }
     }
@@ -133,8 +133,8 @@ class Player: SKSpriteNode {
     func playOllieAnim() {
         self.removeAllActions()
 
-        self.runAction(SKAction.animateWithTextures(charOllieFrames, timePerFrame: 0.05))
-        let wait = SKAction.waitForDuration(0.6)
+        self.runAction(SKAction.animateWithTextures(charOllieFrames, timePerFrame: 0.04))
+        let wait = SKAction.waitForDuration(0.48)
         self.runAction(wait, completion:  {() -> Void in
             self.isOllieTrick = false
             self.isFlipTrick = false
