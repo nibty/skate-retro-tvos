@@ -12,7 +12,7 @@ class Rail: Obstacle {
     
     convenience init() {
         self.init(imageNamed: "rail")
-        self.yPos = 150
+        self.yPos = 140
         
         let topCollider = TopCollider(size: self.size)
         self.addChild(topCollider)
