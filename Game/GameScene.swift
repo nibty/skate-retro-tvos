@@ -21,6 +21,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
     var gameOverLabel: SKLabelNode!
     var scoreLabel: SKLabelNode!
+    var currentScoreLabel: SKLabelNode!
+    var topScoreLabel: SKLabelNode!
+    
+    var currentScore: Int = 0 {
+        didSet {
+            currentScoreLabel.text = "Score: \(currentScore)"
+        }
+    }
+    
+    var topScore: Int = 0 {
+        didSet {
+            topScoreLabel.text = "Best: \(topScore)"
+        }
+    }
     
     override func didMoveToView(view: SKView) {
         
@@ -46,8 +60,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func update(currentTime: CFTimeInterval) {
-        scoreLabel.text = String(GameManager.sharedInstance.score)
-        
+        currentScore = GameManager.sharedInstance.score
+
         for child in self.children {
             child.update()
         }
@@ -111,9 +125,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func startGame() {
         self.backgroundColor = GameManager.sharedInstance.BACKGROUND_COLOR
+        
+        setupScore()
 
         AudioManager.sharedInstance.playMusic(self)
-        
+
         // Add Player
         player = Player()
         self.addChild(player)
@@ -129,19 +145,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(ground)
         
         // Add gameover label
-        gameOverLabel = SKLabelNode(fontNamed: "Arial")
+        gameOverLabel = SKLabelNode(fontNamed: "San Francisco")
         gameOverLabel.fontSize = 40
         gameOverLabel.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))
         gameOverLabel.zPosition = 9
         self.addChild(gameOverLabel)
-      
-        // Add score label
-        scoreLabel = SKLabelNode(fontNamed: "Arial")
-        scoreLabel.fontSize = 40
-        placeScoreLabel()
-        scoreLabel.zPosition = 9
-        scoreLabel.text = "0"
-        self.addChild(scoreLabel)
         
         // Add obsticles
         callActionAtRandomTimes(0.5, max: 2.8, action: {
@@ -209,7 +217,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // Crash detected. End game
         if contact.bodyA.categoryBitMask == GameManager.sharedInstance.COLLIDER_OBSTACLE || contact.bodyB.categoryBitMask == GameManager.sharedInstance.COLLIDER_OBSTACLE {
-            player.physicsBody?.applyImpulse(CGVectorMake(-20, 5))
+            player.physicsBody?.applyImpulse(CGVectorMake(-15, 2))
             stopGame()
         }
             
@@ -283,31 +291,55 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // appletv
         #if os(tvOS)
-            scoreLabel.position = CGPointMake(GameManager.sharedInstance.SCORE_POSITION_X_APPLETV, GameManager.sharedInstance.SCORE_POSITION_Y_APPLETV)
+            currentScoreLabel.position = CGPointMake(GameManager.sharedInstance.SCORE_POSITION_X_APPLETV, GameManager.sharedInstance.SCORE_POSITION_Y_APPLETV)
+            topScoreLabel.position = CGPointMake(GameManager.sharedInstance.SCORE_POSITION_X_APPLETV, GameManager.sharedInstance.SCORE_POSITION_Y_APPLETV - 50)
+
         #else
 
             // iphone landscape
         if isLandscape() && Utils.getPhoneSize().width <= GameManager.sharedInstance.IPHONE_PLUS_WIDTH {
-            scoreLabel.position = CGPointMake(size.width + GameManager.sharedInstance.SCORE_X_ADJUSTMENT_POS_LANDSCAPE, size.height + GameManager.sharedInstance.SCORE_Y_ADJUSTMENT_POS_LANDSCAPE)
-            self.scene!.anchorPoint = CGPointMake(0, -0.2)
-            
-            // iphone portrait
-        } else if Utils.getPhoneSize().width <= GameManager.sharedInstance.IPHONE_PLUS_WIDTH {
-            scoreLabel.position = CGPointMake(size.width + GameManager.sharedInstance.SCORE_X_ADJUSTMENT_POS_PORTRAIT, size.height + GameManager.sharedInstance.SCORE_Y_ADJUSTMENT_POS_PORTRAIT)
-            self.scene!.anchorPoint = CGPointMake(0, 0.0)
-        
+            currentScoreLabel.position = CGPointMake(size.width + GameManager.sharedInstance.SCORE_X_ADJUSTMENT_POS_LANDSCAPE, size.height + GameManager.sharedInstance.SCORE_Y_ADJUSTMENT_POS_LANDSCAPE)
+            topScoreLabel.position = CGPointMake(size.width + GameManager.sharedInstance.SCORE_X_ADJUSTMENT_POS_LANDSCAPE, size.height + GameManager.sharedInstance.SCORE_Y_ADJUSTMENT_POS_LANDSCAPE - 40)
+      
             // ipad landscape
         } else if isLandscape() && Utils.getPhoneSize().width > GameManager.sharedInstance.IPHONE_PLUS_WIDTH {
-                scoreLabel.position = CGPointMake(size.width + GameManager.sharedInstance.SCORE_X_ADJUSTMENT_POS_PORTRAIT, size.height + GameManager.sharedInstance.SCORE_Y_ADJUSTMENT_POS_PORTRAIT)
-                self.scene!.anchorPoint = CGPointMake(0, 0.0)
-       
-            // ipad portrait
-        } else {
-            scoreLabel.position = CGPointMake(size.width + GameManager.sharedInstance.SCORE_X_ADJUSTMENT_POS_PORTRAIT, size.height + GameManager.sharedInstance.SCORE_Y_ADJUSTMENT_POS_PORTRAIT)
-            self.scene!.anchorPoint = CGPointMake(0, 0.0)
+                currentScoreLabel.position = CGPointMake(size.width + GameManager.sharedInstance.SCORE_X_ADJUSTMENT_POS_PORTRAIT, size.height + GameManager.sharedInstance.SCORE_Y_ADJUSTMENT_POS_PORTRAIT)
+            topScoreLabel.position = CGPointMake(size.width + GameManager.sharedInstance.SCORE_X_ADJUSTMENT_POS_PORTRAIT, size.height + GameManager.sharedInstance.SCORE_Y_ADJUSTMENT_POS_PORTRAIT - 40)
         }
             
         #endif
+    }
+    
+    func setupScore() {
+
+        // Add score label
+        currentScoreLabel = SKLabelNode(fontNamed: "San Francisco")
+        currentScoreLabel.fontSize = 30
+        currentScoreLabel.zPosition = 9
+        currentScoreLabel.horizontalAlignmentMode = .Right
+        self.addChild(currentScoreLabel)
+        
+        topScoreLabel = SKLabelNode(fontNamed: "San Francisco")
+        topScoreLabel.fontSize = 30
+        topScoreLabel.zPosition = 9
+        topScoreLabel.horizontalAlignmentMode = .Right
+        self.addChild(topScoreLabel)
+        placeScoreLabel()
+        
+        let userDefaults : NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        
+        if userDefaults.valueForKey(GameManager.sharedInstance.TOP_SCORE_STORAGE_KEY) == nil {
+            userDefaults.setInteger(0, forKey: GameManager.sharedInstance.TOP_SCORE_STORAGE_KEY)
+            userDefaults.synchronize()
+        }
+        
+        if currentScore > topScore {
+            NSUserDefaults.standardUserDefaults().setInteger(currentScore, forKey: GameManager.sharedInstance.TOP_SCORE_STORAGE_KEY)
+            NSUserDefaults.standardUserDefaults().synchronize()
+            topScore = currentScore
+        } else {
+            topScore = NSUserDefaults.standardUserDefaults().objectForKey(GameManager.sharedInstance.TOP_SCORE_STORAGE_KEY) as! Int
+        }
     }
 }
 

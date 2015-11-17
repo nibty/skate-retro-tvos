@@ -18,11 +18,11 @@ class GameManager {
     let COLLIDER_RIDEABLE: UInt32 = 1 << 2
     
     // Score label position
-    let SCORE_X_ADJUSTMENT_POS_LANDSCAPE:CGFloat = -40
-    let SCORE_Y_ADJUSTMENT_POS_LANDSCAPE:CGFloat = 0
+    let SCORE_X_ADJUSTMENT_POS_LANDSCAPE:CGFloat = -20
+    let SCORE_Y_ADJUSTMENT_POS_LANDSCAPE:CGFloat = 20
     let SCORE_X_ADJUSTMENT_POS_PORTRAIT:CGFloat = -40
     let SCORE_Y_ADJUSTMENT_POS_PORTRAIT:CGFloat = -70
-    let SCORE_POSITION_X_APPLETV:CGFloat = 1100
+    let SCORE_POSITION_X_APPLETV:CGFloat = 1120
     let SCORE_POSITION_Y_APPLETV:CGFloat = 700
     
     // Player setup
@@ -56,5 +56,7 @@ class GameManager {
     
     var levelLoop = 0
     var gameOver = false
-    var score = 0    
+    var score = 0
+    let TOP_SCORE_STORAGE_KEY = "highscore"
+
 }
