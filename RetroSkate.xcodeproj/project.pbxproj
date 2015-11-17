@@ -56,8 +56,6 @@
 		011EB63A1BF4080C0005F457 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 015793891BF2597C0009D1F3 /* GameScene.sks */; };
 		01329FFC1BFBA0CA006B6619 /* PressStart2P-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 01329FFB1BFBA0CA006B6619 /* PressStart2P-Regular.ttf */; };
 		01329FFD1BFBA0CA006B6619 /* PressStart2P-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 01329FFB1BFBA0CA006B6619 /* PressStart2P-Regular.ttf */; };
-		01329FFE1BFBA622006B6619 /* iphone.plist in Resources */ = {isa = PBXBuildFile; fileRef = 011264521BF3FB6800FBC8D7 /* iphone.plist */; };
-		01329FFF1BFBA625006B6619 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 015793961BF2597C0009D1F3 /* Info.plist */; };
 		014352451BF4552A0089BD2C /* musicMain.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0143523F1BF4552A0089BD2C /* musicMain.wav */; };
 		014352461BF4552A0089BD2C /* musicMain.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0143523F1BF4552A0089BD2C /* musicMain.wav */; };
 		014352471BF4552A0089BD2C /* sfxButtonPress.wav in Resources */ = {isa = PBXBuildFile; fileRef = 014352401BF4552A0089BD2C /* sfxButtonPress.wav */; };
@@ -396,7 +394,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				01329FFD1BFBA0CA006B6619 /* PressStart2P-Regular.ttf in Resources */,
-				01329FFE1BFBA622006B6619 /* iphone.plist in Resources */,
 				0143524C1BF4552A0089BD2C /* sfxGameOver.wav in Resources */,
 				014352501BF4552A0089BD2C /* sfxSkateOrDie.wav in Resources */,
 				011EB63A1BF4080C0005F457 /* GameScene.sks in Resources */,
@@ -422,7 +419,6 @@
 				011EB6391BF408010005F457 /* GameScene.sks in Resources */,
 				0143524D1BF4552A0089BD2C /* sfxOllie.wav in Resources */,
 				015793951BF2597C0009D1F3 /* Assets.xcassets in Resources */,
-				01329FFF1BFBA625006B6619 /* Info.plist in Resources */,
 				014352451BF4552A0089BD2C /* musicMain.wav in Resources */,
 				015793901BF2597C0009D1F3 /* Game.xcassets in Resources */,
 				01329FFC1BFBA0CA006B6619 /* PressStart2P-Regular.ttf in Resources */,
