@@ -107,7 +107,7 @@
 		011263D11BF327C000FBC8D7 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		011263D31BF32CCB00FBC8D7 /* Tree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tree.swift; sourceTree = "<group>"; };
 		011263D51BF3350300FBC8D7 /* Cloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cloud.swift; sourceTree = "<group>"; };
-		011264511BF3FB6800FBC8D7 /* Game-Iphone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Game-Iphone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		011264511BF3FB6800FBC8D7 /* RetroSkate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RetroSkate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		011264521BF3FB6800FBC8D7 /* iphone.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = iphone.plist; path = /Users/nick/Desktop/Game/iphone.plist; sourceTree = "<absolute>"; };
 		011264531BF4013400FBC8D7 /* Main-Iphone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Main-Iphone.storyboard"; sourceTree = "<group>"; };
 		0143523F1BF4552A0089BD2C /* musicMain.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = musicMain.wav; sourceTree = "<group>"; };
@@ -116,7 +116,7 @@
 		014352421BF4552A0089BD2C /* sfxGameOver.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sfxGameOver.wav; sourceTree = "<group>"; };
 		014352431BF4552A0089BD2C /* sfxOllie.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sfxOllie.wav; sourceTree = "<group>"; };
 		014352441BF4552A0089BD2C /* sfxSkateOrDie.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sfxSkateOrDie.wav; sourceTree = "<group>"; };
-		015793841BF2597C0009D1F3 /* Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Game.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		015793841BF2597C0009D1F3 /* RetroSkate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RetroSkate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		015793871BF2597C0009D1F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		015793891BF2597C0009D1F3 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		0157938B1BF2597C0009D1F3 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -232,7 +232,7 @@
 		0157937B1BF2597C0009D1F3 = {
 			isa = PBXGroup;
 			children = (
-				015793861BF2597C0009D1F3 /* Game */,
+				015793861BF2597C0009D1F3 /* RetroSkate */,
 				015793851BF2597C0009D1F3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -240,13 +240,13 @@
 		015793851BF2597C0009D1F3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				015793841BF2597C0009D1F3 /* Game.app */,
-				011264511BF3FB6800FBC8D7 /* Game-Iphone.app */,
+				015793841BF2597C0009D1F3 /* RetroSkate.app */,
+				011264511BF3FB6800FBC8D7 /* RetroSkate.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		015793861BF2597C0009D1F3 /* Game */ = {
+		015793861BF2597C0009D1F3 /* RetroSkate */ = {
 			isa = PBXGroup;
 			children = (
 				016B24AC1BF5B45D0031ABE4 /* SupportFiles */,
@@ -263,7 +263,7 @@
 				0157938F1BF2597C0009D1F3 /* Game.xcassets */,
 				015793941BF2597C0009D1F3 /* Assets.xcassets */,
 			);
-			path = Game;
+			path = RetroSkate;
 			sourceTree = "<group>";
 		};
 		016B24AC1BF5B45D0031ABE4 /* SupportFiles */ = {
@@ -308,9 +308,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		011264291BF3FB6800FBC8D7 /* Game-Iphone */ = {
+		011264291BF3FB6800FBC8D7 /* RetroSkate-Iphone */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0112644E1BF3FB6800FBC8D7 /* Build configuration list for PBXNativeTarget "Game-Iphone" */;
+			buildConfigurationList = 0112644E1BF3FB6800FBC8D7 /* Build configuration list for PBXNativeTarget "RetroSkate-Iphone" */;
 			buildPhases = (
 				0112642A1BF3FB6800FBC8D7 /* Sources */,
 				011264421BF3FB6800FBC8D7 /* Frameworks */,
@@ -320,14 +320,14 @@
 			);
 			dependencies = (
 			);
-			name = "Game-Iphone";
+			name = "RetroSkate-Iphone";
 			productName = Game;
-			productReference = 011264511BF3FB6800FBC8D7 /* Game-Iphone.app */;
+			productReference = 011264511BF3FB6800FBC8D7 /* RetroSkate.app */;
 			productType = "com.apple.product-type.application";
 		};
-		015793831BF2597C0009D1F3 /* Game */ = {
+		015793831BF2597C0009D1F3 /* RetroSkate */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 015793991BF2597C0009D1F3 /* Build configuration list for PBXNativeTarget "Game" */;
+			buildConfigurationList = 015793991BF2597C0009D1F3 /* Build configuration list for PBXNativeTarget "RetroSkate" */;
 			buildPhases = (
 				015793801BF2597C0009D1F3 /* Sources */,
 				015793811BF2597C0009D1F3 /* Frameworks */,
@@ -337,9 +337,9 @@
 			);
 			dependencies = (
 			);
-			name = Game;
+			name = RetroSkate;
 			productName = Game;
-			productReference = 015793841BF2597C0009D1F3 /* Game.app */;
+			productReference = 015793841BF2597C0009D1F3 /* RetroSkate.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -358,7 +358,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 0157937F1BF2597C0009D1F3 /* Build configuration list for PBXProject "Game" */;
+			buildConfigurationList = 0157937F1BF2597C0009D1F3 /* Build configuration list for PBXProject "RetroSkate" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -371,8 +371,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				015793831BF2597C0009D1F3 /* Game */,
-				011264291BF3FB6800FBC8D7 /* Game-Iphone */,
+				015793831BF2597C0009D1F3 /* RetroSkate */,
+				011264291BF3FB6800FBC8D7 /* RetroSkate-Iphone */,
 			);
 		};
 /* End PBXProject section */
@@ -509,8 +509,8 @@
 				INFOPLIST_FILE = "$(SRCROOT)/../../Desktop/Game/iphone.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nibty.Game;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nibty.RetroSkate;
+				PRODUCT_NAME = RetroSkate;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos9.1;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -526,8 +526,8 @@
 				INFOPLIST_FILE = "$(SRCROOT)/../../Desktop/Game/iphone.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nibty.Game;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nibty.RetroSkate;
+				PRODUCT_NAME = RetroSkate;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos9.1;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -622,10 +622,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
-				INFOPLIST_FILE = Game/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/RetroSkate/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nibty.Game;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = RetroSkate;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -637,10 +637,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
-				INFOPLIST_FILE = Game/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/RetroSkate/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nibty.Game;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = RetroSkate;
 				PROVISIONING_PROFILE = "";
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
@@ -649,7 +649,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0112644E1BF3FB6800FBC8D7 /* Build configuration list for PBXNativeTarget "Game-Iphone" */ = {
+		0112644E1BF3FB6800FBC8D7 /* Build configuration list for PBXNativeTarget "RetroSkate-Iphone" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0112644F1BF3FB6800FBC8D7 /* Debug */,
@@ -658,7 +658,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0157937F1BF2597C0009D1F3 /* Build configuration list for PBXProject "Game" */ = {
+		0157937F1BF2597C0009D1F3 /* Build configuration list for PBXProject "RetroSkate" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				015793971BF2597C0009D1F3 /* Debug */,
@@ -667,7 +667,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		015793991BF2597C0009D1F3 /* Build configuration list for PBXNativeTarget "Game" */ = {
+		015793991BF2597C0009D1F3 /* Build configuration list for PBXNativeTarget "RetroSkate" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0157939A1BF2597C0009D1F3 /* Debug */,
