@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01052F7B1BFBB516004FD454 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 015793941BF2597C0009D1F3 /* Assets.xcassets */; };
+		01052F7C1BFBB518004FD454 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 015793941BF2597C0009D1F3 /* Assets.xcassets */; };
 		0112639D1BF27E7400FBC8D7 /* Obstacle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0112639C1BF27E7400FBC8D7 /* Obstacle.swift */; };
 		0112639F1BF280B700FBC8D7 /* SKNodeUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0112639E1BF280B700FBC8D7 /* SKNodeUpdate.swift */; };
 		011263A11BF2816100FBC8D7 /* Dumpster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011263A01BF2816100FBC8D7 /* Dumpster.swift */; };
@@ -73,7 +75,6 @@
 		0157938E1BF2597C0009D1F3 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0157938D1BF2597C0009D1F3 /* GameViewController.swift */; };
 		015793901BF2597C0009D1F3 /* Game.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0157938F1BF2597C0009D1F3 /* Game.xcassets */; };
 		015793931BF2597C0009D1F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 015793911BF2597C0009D1F3 /* Main.storyboard */; };
-		015793951BF2597C0009D1F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 015793941BF2597C0009D1F3 /* Assets.xcassets */; };
 		01625AAC1BF4538D0069C339 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01625AAB1BF4538D0069C339 /* Launch Screen.storyboard */; };
 		016B24B01BF656DB0031ABE4 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016B24AF1BF656DB0031ABE4 /* AudioManager.swift */; };
 		016B24B21BF80E9F0031ABE4 /* FireHydrant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016B24B11BF80E9F0031ABE4 /* FireHydrant.swift */; };
@@ -109,7 +110,7 @@
 		011263D31BF32CCB00FBC8D7 /* Tree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tree.swift; sourceTree = "<group>"; };
 		011263D51BF3350300FBC8D7 /* Cloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cloud.swift; sourceTree = "<group>"; };
 		011264511BF3FB6800FBC8D7 /* RetroSkate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RetroSkate.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		011264521BF3FB6800FBC8D7 /* iphone.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = iphone.plist; path = /Users/nick/Desktop/Game/iphone.plist; sourceTree = "<absolute>"; };
+		011264521BF3FB6800FBC8D7 /* iphone.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = iphone.plist; sourceTree = "<group>"; };
 		011264531BF4013400FBC8D7 /* Main-Iphone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Main-Iphone.storyboard"; sourceTree = "<group>"; };
 		01329FFB1BFBA0CA006B6619 /* PressStart2P-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PressStart2P-Regular.ttf"; sourceTree = "<group>"; };
 		0143523F1BF4552A0089BD2C /* musicMain.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = musicMain.wav; sourceTree = "<group>"; };
@@ -403,6 +404,7 @@
 				01625AAC1BF4538D0069C339 /* Launch Screen.storyboard in Resources */,
 				0112644D1BF3FB6800FBC8D7 /* Game.xcassets in Resources */,
 				0143524E1BF4552A0089BD2C /* sfxOllie.wav in Resources */,
+				01052F7B1BFBB516004FD454 /* Assets.xcassets in Resources */,
 				014352461BF4552A0089BD2C /* musicMain.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -413,12 +415,12 @@
 			files = (
 				014352471BF4552A0089BD2C /* sfxButtonPress.wav in Resources */,
 				014352491BF4552A0089BD2C /* sfxCrash.wav in Resources */,
+				01052F7C1BFBB518004FD454 /* Assets.xcassets in Resources */,
 				0143524B1BF4552A0089BD2C /* sfxGameOver.wav in Resources */,
 				0143524F1BF4552A0089BD2C /* sfxSkateOrDie.wav in Resources */,
 				015793931BF2597C0009D1F3 /* Main.storyboard in Resources */,
 				011EB6391BF408010005F457 /* GameScene.sks in Resources */,
 				0143524D1BF4552A0089BD2C /* sfxOllie.wav in Resources */,
-				015793951BF2597C0009D1F3 /* Assets.xcassets in Resources */,
 				014352451BF4552A0089BD2C /* musicMain.wav in Resources */,
 				015793901BF2597C0009D1F3 /* Game.xcassets in Resources */,
 				01329FFC1BFBA0CA006B6619 /* PressStart2P-Regular.ttf in Resources */,
@@ -515,9 +517,10 @@
 		0112644F1BF3FB6800FBC8D7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
-				INFOPLIST_FILE = "$(SRCROOT)/../../Desktop/Game/iphone.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/RetroSkate/iphone.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nibty.RetroSkate;
@@ -531,9 +534,10 @@
 		011264501BF3FB6800FBC8D7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
-				INFOPLIST_FILE = "$(SRCROOT)/../../Desktop/Game/iphone.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/RetroSkate/iphone.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nibty.RetroSkate;
