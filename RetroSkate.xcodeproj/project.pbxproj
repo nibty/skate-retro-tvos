@@ -368,6 +368,9 @@
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Nicholas Pettas";
 				TargetAttributes = {
+					011264291BF3FB6800FBC8D7 = {
+						DevelopmentTeam = 589F3F86QL;
+					};
 					015793831BF2597C0009D1F3 = {
 						CreatedOnToolsVersion = 7.1;
 						DevelopmentTeam = BSCV69Q3EV;
