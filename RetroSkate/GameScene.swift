@@ -153,11 +153,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         ground.setup()
         self.addChild(ground)
         
-        // Add come clouds
-        callActionAtRandomTimes(60, max: 120, action: {
-            self.addCloud()
-        })
-        
         // Add buildings
         callActionAtRandomTimes(1.5, max: 2.5, action: {
             self.addBuilding()
