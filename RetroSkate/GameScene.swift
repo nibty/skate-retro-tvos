@@ -312,14 +312,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // appletv
         #if os(tvOS)
             currentScoreLabel.position = CGPointMake(GameManager.sharedInstance.SCORE_POSITION_X_APPLETV, GameManager.sharedInstance.SCORE_POSITION_Y_APPLETV)
-            topScoreLabel.position = CGPointMake(GameManager.sharedInstance.SCORE_POSITION_X_APPLETV, GameManager.sharedInstance.SCORE_POSITION_Y_APPLETV - 40)
+            topScoreLabel.position = CGPointMake(GameManager.sharedInstance.SCORE_POSITION_X_APPLETV, GameManager.sharedInstance.SCORE_POSITION_Y_APPLETV - 45)
 
         #else
 
             // iphone landscape
         if isLandscape() && Utils.getPhoneSize().width <= GameManager.sharedInstance.IPHONE_PLUS_WIDTH {
             currentScoreLabel.position = CGPointMake(size.width + GameManager.sharedInstance.SCORE_X_ADJUSTMENT_POS_LANDSCAPE, size.height + GameManager.sharedInstance.SCORE_Y_ADJUSTMENT_POS_LANDSCAPE)
-            topScoreLabel.position = CGPointMake(size.width + GameManager.sharedInstance.SCORE_X_ADJUSTMENT_POS_LANDSCAPE, size.height + GameManager.sharedInstance.SCORE_Y_ADJUSTMENT_POS_LANDSCAPE - 40)
+            topScoreLabel.position = CGPointMake(size.width + GameManager.sharedInstance.SCORE_X_ADJUSTMENT_POS_LANDSCAPE, size.height + GameManager.sharedInstance.SCORE_Y_ADJUSTMENT_POS_LANDSCAPE - 30)
       
             // ipad landscape
         } else if isLandscape() && Utils.getPhoneSize().width > GameManager.sharedInstance.IPHONE_PLUS_WIDTH {
@@ -343,12 +343,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         topScoreLabel.horizontalAlignmentMode = .Right
         self.addChild(topScoreLabel)
         
-        #if os(tv)
-            topScoreLabel.fontSize = 32
+        #if os(tvOS)
+            topScoreLabel.fontSize = 28
             currentScoreLabel.fontSize = 32
         #else
-            topScoreLabel.fontSize = 24
-            currentScoreLabel.fontSize = 24
+            topScoreLabel.fontSize = 20
+            currentScoreLabel.fontSize = 20
         #endif
         
         let userDefaults : NSUserDefaults = NSUserDefaults.standardUserDefaults()
@@ -369,15 +369,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func setupLabels() {
         mainLabel = SKLabelNode(fontNamed: "PressStart2P-Regular")
-        mainLabel.fontSize = 48
+        #if os(tvOS)
+            mainLabel.fontSize = 48
+        #else
+            mainLabel.fontSize = 40
+        #endif
         mainLabel.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) + 10)
-        mainLabel.zPosition = 9
-        self.addChild(mainLabel)
+        mainLabel.zPosition = 11
 
         subLabel = SKLabelNode(fontNamed: "PressStart2P-Regular")
         subLabel.fontSize = 24
-        subLabel.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) - 40)
-        subLabel.zPosition = 9
+        subLabel.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) - 30)
+        subLabel.zPosition = 11
+        
+        self.addChild(mainLabel)
         self.addChild(subLabel)
     }
     
