@@ -19,10 +19,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var obstacles = [SKSpriteNode]()
     var scenery = [SKSpriteNode]()
 
-    var gameOverLabel: SKLabelNode!
+    var mainLabel: SKLabelNode!
+    var subLabel: SKLabelNode!
     var scoreLabel: SKLabelNode!
     var currentScoreLabel: SKLabelNode!
     var topScoreLabel: SKLabelNode!
+    
+    var gameStarted = false
+    var readyToRestart = false
     
     var currentScore: Int = 0 {
         didSet {
@@ -56,7 +60,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.gravity = CGVectorMake(0.0, GameManager.sharedInstance.GRAVITY_Y)
         self.physicsWorld.contactDelegate = self
         
-        startGame()
+        setupGame()
     }
     
     override func update(currentTime: CFTimeInterval) {
@@ -123,13 +127,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         })
     }
     
-    func startGame() {
+    func setupGame() {
         self.backgroundColor = GameManager.sharedInstance.BACKGROUND_COLOR
-        
+
         setupScore()
+        placeScoreLabel()
+        setupLabels()
 
-        AudioManager.sharedInstance.playMusic(self)
-
+        setMainLabelText("Retro Skate")
+        setSubLabelText("Tap to start")
+        
         // Add Player
         player = Player()
         self.addChild(player)
@@ -144,17 +151,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         ground.setup()
         self.addChild(ground)
         
-        // Add gameover label
-        gameOverLabel = SKLabelNode(fontNamed: "PressStart2P-Regular")
-        gameOverLabel.fontSize = 40
-        gameOverLabel.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))
-        gameOverLabel.zPosition = 9
-        self.addChild(gameOverLabel)
-        
-        // Add obsticles
-        callActionAtRandomTimes(0.5, max: 2.8, action: {
-            self.addObsticle()
-            })
+        // Add come clouds
+        callActionAtRandomTimes(60, max: 120, action: {
+            self.addCloud()
+        })
         
         // Add buildings
         callActionAtRandomTimes(1.5, max: 2.5, action: {
@@ -177,6 +177,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         })
     }
     
+    func startGame() {
+        clearMainLabel()
+        clearSubLabel()
+        
+        readyToRestart = false
+        gameStarted = true
+
+        AudioManager.sharedInstance.playMusic(self)
+
+        // Add obsticles
+        callActionAtRandomTimes(0.5, max: 2.8, action: {
+            self.addObsticle()
+            })
+    }
+    
     func restartGame() {
         GameManager.sharedInstance.gameOver = false
         GameManager.sharedInstance.score = 0
@@ -186,11 +201,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         ground = nil
         scenery = [SKSpriteNode]()
         obstacles = [SKSpriteNode]()
-        gameOverLabel = nil
         
-        self.removeAllChildren()
+        removeAllChildren()
 
-        self.startGame()
+        setupGame()
+        startGame()
     }
     
     func stopGame() {
@@ -207,6 +222,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         for scene in scenery {
             scene.removeAllActions()
         }
+        
+        runAction(SKAction.waitForDuration(1), completion:  {() -> Void in
+                self.readyToRestart = true
+                self.setSubLabelText("Tap to Restart")
+            })
         
         player.playCrashAnim()
         
@@ -237,30 +257,30 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func gameOver() {
         GameManager.sharedInstance.gameOver = true
-        gameOverLabel.text = "Game Over"
+        setMainLabelText("Game Over")
     }
     
     func tapped(gesture: UIGestureRecognizer) {
-        if !GameManager.sharedInstance.gameOver {
+        if !GameManager.sharedInstance.gameOver && gameStarted {
             player.jump()
-        } else {
+            
+        } else if readyToRestart {
             restartGame()
+            
+        } else if !gameStarted {
+            startGame()
         }
     }
     
     func swiped(gesture: UIGestureRecognizer) {
         if !GameManager.sharedInstance.gameOver {
             player.ollie()
-        } else {
-            restartGame()
         }
     }
     
     func swipedLeft(gesture: UIGestureRecognizer) {
         if !GameManager.sharedInstance.gameOver {
             player.flip()
-        } else {
-            restartGame()
         }
     }
     
@@ -277,7 +297,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             placeScoreLabel()
         }
         
-        if let label = gameOverLabel {
+        if let label = mainLabel {
             label.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))
         }
     }
@@ -292,7 +312,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // appletv
         #if os(tvOS)
             currentScoreLabel.position = CGPointMake(GameManager.sharedInstance.SCORE_POSITION_X_APPLETV, GameManager.sharedInstance.SCORE_POSITION_Y_APPLETV)
-            topScoreLabel.position = CGPointMake(GameManager.sharedInstance.SCORE_POSITION_X_APPLETV, GameManager.sharedInstance.SCORE_POSITION_Y_APPLETV - 50)
+            topScoreLabel.position = CGPointMake(GameManager.sharedInstance.SCORE_POSITION_X_APPLETV, GameManager.sharedInstance.SCORE_POSITION_Y_APPLETV - 40)
 
         #else
 
@@ -331,8 +351,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             currentScoreLabel.fontSize = 24
         #endif
         
-        placeScoreLabel()
-        
         let userDefaults : NSUserDefaults = NSUserDefaults.standardUserDefaults()
         
         if userDefaults.valueForKey(GameManager.sharedInstance.TOP_SCORE_STORAGE_KEY) == nil {
@@ -347,6 +365,41 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         } else {
             topScore = NSUserDefaults.standardUserDefaults().objectForKey(GameManager.sharedInstance.TOP_SCORE_STORAGE_KEY) as! Int
         }
+    }
+    
+    func setupLabels() {
+        mainLabel = SKLabelNode(fontNamed: "PressStart2P-Regular")
+        mainLabel.fontSize = 48
+        mainLabel.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) + 10)
+        mainLabel.zPosition = 9
+        self.addChild(mainLabel)
+
+        subLabel = SKLabelNode(fontNamed: "PressStart2P-Regular")
+        subLabel.fontSize = 24
+        subLabel.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) - 40)
+        subLabel.zPosition = 9
+        self.addChild(subLabel)
+    }
+    
+    func setMainLabelText(text: String) {
+        mainLabel.text = text
+    }
+    
+    func clearMainLabel() {
+        mainLabel.text = ""
+    }
+    
+    func setSubLabelText(text: String) {
+        let fadeIn = SKAction.fadeInWithDuration(0.8)
+        let fadeOut = SKAction.fadeOutWithDuration(0.8)
+        let wait = SKAction.waitForDuration(0.5)
+        
+        subLabel.text = text
+        subLabel.runAction(SKAction.repeatActionForever(SKAction.sequence([fadeIn, wait, fadeOut])))
+    }
+    
+    func clearSubLabel() {
+        subLabel.text = ""
     }
 }
 

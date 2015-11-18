@@ -16,5 +16,7 @@ class FireHydrant: Movable {
         self.zPosition = 7
     }
     
-    override func didExceedBounds() {}
+    override func didExceedBounds() {
+        self.removeFromParent()
+    }
 }

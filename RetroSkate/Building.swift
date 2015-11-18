@@ -16,5 +16,7 @@ class Building: Movable {
         self.zPosition = 5
     }
     
-    override func didExceedBounds() {}
+    override func didExceedBounds() {
+        self.removeFromParent()
+    }
 }

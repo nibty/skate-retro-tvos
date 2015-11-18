@@ -16,5 +16,7 @@ class Tree: Movable {
         self.zPosition = 6
     }
     
-    override func didExceedBounds() {}
+    override func didExceedBounds() {
+        self.removeFromParent()
+    }
 }

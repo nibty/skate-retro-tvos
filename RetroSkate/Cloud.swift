@@ -17,5 +17,7 @@ class Cloud: Movable {
         self.alpha = 0.7
     }
     
-    override func didExceedBounds() {}
+    override func didExceedBounds() {
+        self.removeFromParent()
+    }
 }

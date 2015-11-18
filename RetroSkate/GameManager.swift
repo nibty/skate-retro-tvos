@@ -23,7 +23,7 @@ class GameManager {
     let SCORE_X_ADJUSTMENT_POS_PORTRAIT:CGFloat = -40
     let SCORE_Y_ADJUSTMENT_POS_PORTRAIT:CGFloat = -70
     let SCORE_POSITION_X_APPLETV:CGFloat = 1120
-    let SCORE_POSITION_Y_APPLETV:CGFloat = 700
+    let SCORE_POSITION_Y_APPLETV:CGFloat = 710
     
     // Player setup
     let CHAR_X_POSITION: CGFloat = 158
