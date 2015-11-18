@@ -60,6 +60,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.gravity = CGVectorMake(0.0, GameManager.sharedInstance.GRAVITY_Y)
         self.physicsWorld.contactDelegate = self
         
+        AudioManager.sharedInstance
+        
         setupGame()
     }
     

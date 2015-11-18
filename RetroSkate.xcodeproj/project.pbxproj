@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		01052F7B1BFBB516004FD454 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 015793941BF2597C0009D1F3 /* Assets.xcassets */; };
 		01052F7C1BFBB518004FD454 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 015793941BF2597C0009D1F3 /* Assets.xcassets */; };
+		010F99111BFC63EA00B491F7 /* OnBoarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010F99101BFC63EA00B491F7 /* OnBoarding.swift */; };
+		010F99121BFC6E2B00B491F7 /* OnBoarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010F99101BFC63EA00B491F7 /* OnBoarding.swift */; };
 		0112639D1BF27E7400FBC8D7 /* Obstacle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0112639C1BF27E7400FBC8D7 /* Obstacle.swift */; };
 		0112639F1BF280B700FBC8D7 /* SKNodeUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0112639E1BF280B700FBC8D7 /* SKNodeUpdate.swift */; };
 		011263A11BF2816100FBC8D7 /* Dumpster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011263A01BF2816100FBC8D7 /* Dumpster.swift */; };
@@ -89,6 +91,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		010F99101BFC63EA00B491F7 /* OnBoarding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoarding.swift; sourceTree = "<group>"; };
 		0112639C1BF27E7400FBC8D7 /* Obstacle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Obstacle.swift; sourceTree = "<group>"; };
 		0112639E1BF280B700FBC8D7 /* SKNodeUpdate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKNodeUpdate.swift; sourceTree = "<group>"; };
 		011263A01BF2816100FBC8D7 /* Dumpster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dumpster.swift; sourceTree = "<group>"; };
@@ -182,6 +185,7 @@
 			children = (
 				015793891BF2597C0009D1F3 /* GameScene.sks */,
 				0157938B1BF2597C0009D1F3 /* GameScene.swift */,
+				010F99101BFC63EA00B491F7 /* OnBoarding.swift */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -456,6 +460,7 @@
 				0112643C1BF3FB6800FBC8D7 /* Obstacle.swift in Sources */,
 				019968E31BF98DAC00039E54 /* AudioManager.swift in Sources */,
 				0112643D1BF3FB6800FBC8D7 /* Tree.swift in Sources */,
+				010F99121BFC6E2B00B491F7 /* OnBoarding.swift in Sources */,
 				0112643E1BF3FB6800FBC8D7 /* Utils.swift in Sources */,
 				0112643F1BF3FB6800FBC8D7 /* AppDelegate.swift in Sources */,
 				019968E41BF98DEF00039E54 /* Random.swift in Sources */,
@@ -491,6 +496,7 @@
 				0112639D1BF27E7400FBC8D7 /* Obstacle.swift in Sources */,
 				016B24B01BF656DB0031ABE4 /* AudioManager.swift in Sources */,
 				011263D41BF32CCB00FBC8D7 /* Tree.swift in Sources */,
+				010F99111BFC63EA00B491F7 /* OnBoarding.swift in Sources */,
 				011263D21BF327C000FBC8D7 /* Utils.swift in Sources */,
 				015793881BF2597C0009D1F3 /* AppDelegate.swift in Sources */,
 				016B24B61BF812BF0031ABE4 /* Rail.swift in Sources */,
