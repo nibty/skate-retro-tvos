@@ -373,7 +373,7 @@
 					};
 					015793831BF2597C0009D1F3 = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = BSCV69Q3EV;
+						DevelopmentTeam = 589F3F86QL;
 					};
 				};
 			};
@@ -647,7 +647,7 @@
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "$(SRCROOT)/RetroSkate/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nibty.Game;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nibty.RetroSkate;
 				PRODUCT_NAME = RetroSkate;
 				PROVISIONING_PROFILE = "";
 			};
@@ -662,7 +662,7 @@
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "$(SRCROOT)/RetroSkate/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nibty.Game;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nibty.RetroSkate;
 				PRODUCT_NAME = RetroSkate;
 				PROVISIONING_PROFILE = "";
 				TVOS_DEPLOYMENT_TARGET = 9.0;
