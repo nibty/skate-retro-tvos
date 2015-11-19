@@ -532,6 +532,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/RetroSkate/iphone.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nibty.RetroSkate;
 				PRODUCT_NAME = RetroSkate;
 				PROVISIONING_PROFILE = "";
@@ -549,6 +550,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/RetroSkate/iphone.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nibty.RetroSkate;
 				PRODUCT_NAME = RetroSkate;
 				PROVISIONING_PROFILE = "";

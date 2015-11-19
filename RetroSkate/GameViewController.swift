@@ -11,24 +11,23 @@ import SpriteKit
 
 class GameViewController: UIViewController {
     
+    var mainScene: SKScene!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         NSNotificationCenter.defaultCenter().addObserver(
             self,
-            selector: "loadLevelOne",
-            name: "loadLevelOne",
+            selector: "nextScene",
+            name: "nextScene",
             object: nil)
 
-        #if os(tvOS)
-            loadOnboarding()
-        #else
-            loadLevelOne()
-        #endif
+        loadOnboarding()
     }
 
     func loadLevelOne() {
         if let scene = GameScene(fileNamed: "GameScene") {
+            mainScene = scene
             
             // Configure the view.
             let skView = self.view as! SKView
@@ -64,11 +63,19 @@ class GameViewController: UIViewController {
         }
     }
     
+    func nextScene() {
+        mainScene.removeAllChildren()
+        mainScene.removeAllActions()
+        mainScene.removeFromParent()
+        
+        loadLevelOne()
+    }
+    
     func loadOnboarding() {
-        let scene = OnBoarding(size: view.bounds.size)
+        mainScene = OnBoarding(size: view.bounds.size)
         let skView = self.view as! SKView
         skView.ignoresSiblingOrder = true
-        skView.presentScene(scene)
+        skView.presentScene(mainScene)
     }
     
     override func didReceiveMemoryWarning() {
